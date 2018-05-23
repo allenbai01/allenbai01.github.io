@@ -3,15 +3,19 @@
 
 ~~~
 {}{img_left}{yub.png}{Yu Bai}{180}{240}{}
-*About me*: I am a third-year PhD student in
+
+*About me*: I am a fourth-year PhD student in
 [https://statistics.stanford.edu/ Statistics] at
-[http://www.stanford.edu/ Stanford University], advised by
-[https://stanford.edu/~jduchi/ John Duchi]. I am broadly interested in
-problems arising in modern data science and solving them using a
-combination of statistics, machine learning, and optimization. I am
-particularly interested in convex and non-convex optimization,
-learning theory, statistical signal processing, and information
-theory.
+[http://www.stanford.edu/ Stanford University], where I am fortunate
+to be advised by [https://stanford.edu/~jduchi/ John Duchi]. My
+research interest lies broadly in the span of machine learning,
+optimization, and statistics. I am particularly interested in
+non-convex / non-smooth geometries and theories of deep learning.
+
+I am delighted to complement my research with industrial
+experiences. I spent a wonderful summer at
+[https://research.google.com Google Research] in 2016 working with
+[https://research.google.com/pubs/LiZhang.html Li Zhang]. 
 
 Prior to Stanford, I was an undergrad in mathematics at
 [http://www.pku.edu.cn/ Peking University].
@@ -25,7 +29,11 @@ yub (at) stanford.edu
 ~~~
 
 == Publications
-*Preprint*
+- [https://arxiv.org/pdf/1805.08756.pdf On the Connection Between
+  Sequential Quadratic Programming and Riemannian Gradient
+  Methods.] \n Yu Bai, Song Mei. [https://arxiv.org/pdf/1805.08756.pdf
+  \[arXiv\]]
+  
 - [https://arxiv.org/abs/1707.03073 TAPAS: Two-pass Approximate
   Adaptive Sampling for Softmax.]~Yu Bai,
   Sally Goldman, and Li Zhang. [https://arxiv.org/abs/1707.03073
