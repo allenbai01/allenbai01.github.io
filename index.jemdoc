@@ -6,12 +6,13 @@
 
 *About me*: I am a fourth-year PhD student in
 [https://statistics.stanford.edu/ Statistics] at
-[http://www.stanford.edu/ Stanford University], where I am fortunate
-to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi]. My
-research interest lies broadly in the span of machine learning,
-optimization, and statistics. I am particularly interested in deep
-generative models, non-convex optimization, and principled approaches
-for deep learning. Here is my [Yu_Bai_CV.pdf CV].
+[http://www.stanford.edu/ Stanford University] (specializing in
+statistical learning theories and non-convex optimization), where I am
+fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John
+Duchi]. My research interest lies broadly in the span of machine
+learning, optimization, and statistics. I am particularly interested
+in deep generative models, non-convex optimization, and principled
+approaches for deep learning. Here is my [Yu_Bai_CV.pdf CV].
 
 I am delighted to complement my research with industrial
 experiences. I spent a wonderful summer at
@@ -39,6 +40,10 @@ yub (at) stanford.edu
 - [https://arxiv.org/abs/1805.08756 On the Connection Between
   Sequential Quadratic Programming and Riemannian Gradient
   Methods.] \n Yu Bai, Song Mei, 2018. 
+
+- [penalty-sdp.pdf Exact Penalty Methods for Constrained Composite Optimization,		
+  with Applications to Solving Low-rank SDPs] \n
+  Yu Bai, John Duchi, and Song Mei, 2018.
   
 - [https://arxiv.org/abs/1707.03073 TAPAS: Two-pass Approximate
   Adaptive Sampling for Softmax.] \n
@@ -47,4 +52,4 @@ yub (at) stanford.edu
 - [https://arxiv.org/abs/1607.06534 The Landscape of Empirical Risk
   for Nonconvex Losses.] \n
   Song Mei, Yu Bai, and Andrea Montanari, 2016.
-  \n /To appear in the Annals of Statistics./
+  \n /The Annals of Statistics,/ Volume 46, Number 6A (2018), 2747-2774.
