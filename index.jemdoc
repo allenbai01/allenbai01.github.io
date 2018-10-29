@@ -2,19 +2,21 @@
 = Yu Bai
 
 ~~~
-{}{img_left}{yub.png}{Yu Bai}{180}{240}{}
+{}{img_left}{yub.png}{Yu Bai}{240}{320}{}
 
 *About me*: I am a fifth-year PhD student in
 [https://statistics.stanford.edu/ Statistics] at
 [http://www.stanford.edu/ Stanford University] (specializing in
 statistical learning theories and non-convex optimization), where I am
 fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John
-Duchi]. My research interest lies broadly in machine learning and deep
+Duchi]. I am a member of the
+[http://statsml.stanford.edu/index.html Statistical Machine
+Learning Group]. Here is my [Yu_Bai_CV.pdf CV].
+
+My research interest lies broadly in machine learning and deep
 learning. I am particularly interested in optimization and
 generalization theories of deep neural networks, as well as deep
-generative models.
-
-Here is my [Yu_Bai_CV.pdf CV].
+generative models. 
 
 I am delighted to complement my research with industrial
 experiences. I spent two wonderful summers working as research interns
@@ -52,7 +54,7 @@ yub (at) stanford.edu
   Sequential Quadratic Programming and Riemannian Gradient
   Methods.] \n Yu Bai, Song Mei, 2018. 
 
-- [penalty-sdp.pdf Exact Penalty Methods for Constrained Composite Optimization,		
+- [penalty-sdp.pdf Exact Penalty Methods for Constrained Composite Optimization 
   with Applications to Solving Low-rank SDPs.] \n
   Yu Bai, John Duchi, and Song Mei, 2018.
   
