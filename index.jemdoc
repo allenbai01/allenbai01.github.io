@@ -39,6 +39,9 @@ yub (at) stanford.edu
 
 == Publications
 
+- [https://arxiv.org/abs/1903.00184 Proximal algorithms for constrained composite optimization, with applications to solving low-rank SDPs.] \n
+  Yu Bai, John Duchi, and Song Mei, 2019.
+  
 - [https://arxiv.org/abs/1810.10702
   Subgradient Descent Learns Orthogonal Dictionaries.] \n
   Yu Bai, Qijia Jiang, Ju Sun, 2018. \n
@@ -54,13 +57,9 @@ yub (at) stanford.edu
   Yu Bai, Tengyu Ma, Andrej Risteski, 2018. \n
   To appear in ICLR 2019.
   
-- [https://arxiv.org/abs/1805.08756 On the Connection Between
-  Sequential Quadratic Programming and Riemannian Gradient
-  Methods.] \n Yu Bai, Song Mei, 2018. 
-
-- [penalty-sdp.pdf Exact Penalty Methods for Constrained Composite Optimization 
-  with Applications to Solving Low-rank SDPs.] \n
-  Yu Bai, John Duchi, and Song Mei, 2018.
+- [https://arxiv.org/abs/1805.08756 Analysis of Sequantial Quadratic
+  Programming through the Lens of Riemannian Optimization.] \n
+  Yu Bai, Song Mei, 2018.
   
 - [https://arxiv.org/abs/1707.03073 TAPAS: Two-pass Approximate
   Adaptive Sampling for Softmax.] \n
@@ -87,4 +86,4 @@ yub (at) stanford.edu
 
 == Service
 - Conference reviewing: NIPS (top 30\% reviewer), ICLR, ICML, IEEE-ISIT. \n
-- Journal reviewing: IEEE-TSP, SICON (SIAM Journal on Control and Optimization).
+- Journal reviewing: JMLR, IEEE-TSP, SICON (SIAM Journal on Control and Optimization).
