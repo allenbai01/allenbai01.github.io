@@ -44,18 +44,15 @@ yub (at) stanford.edu
   
 - [https://arxiv.org/abs/1810.10702
   Subgradient Descent Learns Orthogonal Dictionaries.] \n
-  Yu Bai, Qijia Jiang, Ju Sun, 2018. \n
-  To appear in ICLR 2019.
+  Yu Bai, Qijia Jiang, Ju Sun. /ICLR 2019./
 
 - [https://arxiv.org/abs/1810.00861 
   ProxQuant: Quantized Neural Networks via Proximal Operators.] \n
-  Yu Bai, Yu-Xiang Wang, Edo Liberty, 2018. \n
-  To appear in ICLR 2019.
+  Yu Bai, Yu-Xiang Wang, Edo Liberty. /ICLR 2019./
 
 - [https://arxiv.org/abs/1806.10586 Approximability of Discriminators
   Implies Diversity in GANs.] \n
-  Yu Bai, Tengyu Ma, Andrej Risteski, 2018. \n
-  To appear in ICLR 2019.
+  Yu Bai, Tengyu Ma, Andrej Risteski, 2018. /ICLR 2019./
   
 - [https://arxiv.org/abs/1805.08756 Analysis of Sequantial Quadratic
   Programming through the Lens of Riemannian Optimization.] \n
@@ -71,11 +68,16 @@ yub (at) stanford.edu
   \n /The Annals of Statistics,/ Volume 46, Number 6A (2018), 2747-2774.
 
 == Talks
+- Subgradient Descent Learns Orthogonal Dictionaries. \n
+  ICLR, May 2019, New Orleans, LA. \n
+  
 - ProxQuant: Quantized Neural Networks via Proximal Operators \n
+  ICLR, May 2019, New Orleans, LA. \n
   Bytedance AI Lab, Dec 2018, Menlo Park, CA. \n
   Amazon AI, Sep 2018, East Palo Alto, CA.
 
 - On the Generalization and Approximation in Generative Adversarial Networks (GANs) \n
+  ICLR, May 2019, New Orleans, LA. \n
   Google Brain, Nov 2018, Mountain View, CA. \n
   Salesforce Research, Nov 2018, Palo Alto, CA. \n
   Stanford ML Seminar, Oct 2018, Stanford, CA.
