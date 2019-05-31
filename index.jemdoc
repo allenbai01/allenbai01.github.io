@@ -15,8 +15,8 @@ Learning Group]. Here is my [Yu_Bai_CV.pdf CV].
 
 My research interest lies broadly in machine learning and deep
 learning. I am particularly interested in optimization and
-generalization theories of deep neural networks, as well as deep
-generative models. 
+generalization theories of deep neural networks, generative models,
+and statistical reinforcement learning.
 
 I am delighted to complement my research with industrial
 experiences. I spent two wonderful summers working as research interns
@@ -41,6 +41,9 @@ yub (at) stanford.edu
 ~~~
 
 == Publications
+
+- [https://arxiv.org/abs/1905.12849 Provably Efficient Q-Learning with Low Switching Cost.] \n
+  Yu Bai, Tengyang Xie, Nan Jiang, Yu-Xiang Wang, 2019.
 
 - [https://arxiv.org/abs/1903.00184 Proximal algorithms for constrained composite optimization, with applications to solving low-rank SDPs.] \n
   Yu Bai, John Duchi, and Song Mei, 2019.
