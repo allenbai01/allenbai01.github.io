@@ -68,13 +68,13 @@ yub (at) stanford.edu
 
 - [https://arxiv.org/abs/1607.06534 The Landscape of Empirical Risk
   for Nonconvex Losses.] \n
-  Song Mei, Yu Bai, and Andrea Montanari, 2016.
+  Song Mei, Yu Bai, Andrea Montanari, 2016.
   \n /The Annals of Statistics,/ Volume 46, Number 6A (2018), 2747-2774.
 
 * Preprints and technical notes *
 
 - [https://arxiv.org/abs/1903.00184 Proximal algorithms for constrained composite optimization, with applications to solving low-rank SDPs.] \n
-  Yu Bai, John Duchi, and Song Mei, 2019.
+  Yu Bai, John Duchi, Song Mei, 2019.
   
 - [https://arxiv.org/abs/1805.08756 Analysis of Sequantial Quadratic
   Programming through the Lens of Riemannian Optimization.] \n
@@ -82,7 +82,7 @@ yub (at) stanford.edu
   
 - [https://arxiv.org/abs/1707.03073 TAPAS: Two-pass Approximate
   Adaptive Sampling for Softmax.] \n
-  Yu Bai, Sally Goldman, and Li Zhang, 2017. 
+  Yu Bai, Sally Goldman, Li Zhang, 2017. 
 
 == Talks
 - Subgradient Descent Learns Orthogonal Dictionaries. \n
