@@ -14,9 +14,8 @@ Duchi]. I was a member of the
 Learning Group]. Here is my [Yu_Bai_CV.pdf CV].
 
 My research interest lies broadly in machine learning and deep
-learning. I am particularly interested in optimization and
-generalization theories of deep neural networks, 
-statistical reinforcement learning, and generative models.
+learning. My recent focus is on the theories of deep learning and
+reinforcement learning.
 
 I am delighted to complement my research with industrial
 experiences. I spent two wonderful summers working as research interns
@@ -45,6 +44,14 @@ yub (at) stanford.edu
 
 == Research
 
+* Preprints *
+
+- [https://arxiv.org/abs/1910.01619 Beyond Linearization: On Quadratic and Higher-Order Approximation of Wide Neural Networks.] \n
+  Yu Bai, Jason D. Lee, 2019.
+  
+- [https://arxiv.org/abs/1903.00184 Proximal algorithms for constrained composite optimization, with applications to solving low-rank SDPs.] \n
+  Yu Bai, John C. Duchi, Song Mei, 2019.
+  
 * Publications *
 
 - [https://arxiv.org/abs/1905.12849 Provably Efficient Q-Learning with Low Switching Cost.] \n
@@ -71,10 +78,7 @@ yub (at) stanford.edu
   Song Mei, Yu Bai, Andrea Montanari, 2016.
   \n /The Annals of Statistics,/ Volume 46, Number 6A (2018), 2747-2774.
 
-* Preprints and technical reports *
-
-- [https://arxiv.org/abs/1903.00184 Proximal algorithms for constrained composite optimization, with applications to solving low-rank SDPs.] \n
-  Yu Bai, John Duchi, Song Mei, 2019.
+* Other technical reports *
   
 - [https://arxiv.org/abs/1805.08756 Analysis of Sequantial Quadratic
   Programming through the Lens of Riemannian Optimization.] \n
