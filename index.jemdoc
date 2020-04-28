@@ -47,7 +47,8 @@ Google scholar profile] | [https://twitter.com/yubai01 Twitter]
 * Preprints *
 
 - [https://arxiv.org/abs/2002.04010 Taylorized Training: Towards Better Approximation of Neural Network Training at Finite Width.] \n
-  Yu Bai, Ben Krause, Huan Wang, Caiming Xiong, Richard Socher, 2020.
+  Yu Bai, Ben Krause, Huan Wang, Caiming Xiong, Richard Socher,
+  2020. [https://github.com/allenbai01/taylorized-training \[Code\]]
   
 - [https://arxiv.org/abs/2002.04017 Provable Self-Play Algorithms for Competitive Reinforcement Learning.] \n
   Yu Bai, Chi Jin, 2020.
@@ -73,7 +74,7 @@ Google scholar profile] | [https://twitter.com/yubai01 Twitter]
 - [https://arxiv.org/abs/1810.00861 
   ProxQuant: Quantized Neural Networks via Proximal Operators.] \n
   Yu Bai, Yu-Xiang Wang, Edo Liberty. \n
-  ICLR 2019.
+  ICLR 2019. [https://github.com/allenbai01/ProxQuant \[Code\]]
 
 - [https://arxiv.org/abs/1806.10586 Approximability of Discriminators
   Implies Diversity in GANs.] \n
