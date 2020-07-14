@@ -26,7 +26,11 @@ Prior to Stanford, I was an undergrad in mathematics at
 *News*:
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for spring and summer 2020!</font>}}*
-  
+
+- Our [https://arxiv.org/abs/2002.04017 paper] on self-play
+  is accepted by ICML 2020. We present the first line of provable
+  self-play algorithms for two-player Markov games.
+
 - In October 2019, I will be joining [https://einstein.ai/ Salesforce
   Research] in Palo Alto as a research scientist. 
 
@@ -55,6 +59,13 @@ Google scholar profile] | [https://twitter.com/yubai01 Twitter]
 - [https://arxiv.org/abs/2006.12007 Near-Optimal Reinforcement
   Learning with Self-Play.] \n
   Yu Bai, Chi Jin, Tiancheng Yu. \n
+  Preprint, 2020. \n
+  /Oral presentation/ at ICML 2020 Workshop on the Theoretical
+  Foundations of Reinforcemnet Learning.
+
+- [https://arxiv.org/abs/2007.03760 Near Optimal Provable Uniform
+  Convergence in Off-Policy Evaluation for Reinforcement Learning.] \n
+  Ming Yin, Yu Bai, Yu-Xiang Wang. \n
   Preprint, 2020.
 
 - [https://arxiv.org/abs/2002.04010 Taylorized Training: Towards Better Approximation of Neural Network Training at Finite Width.] \n
