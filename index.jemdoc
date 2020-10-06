@@ -17,14 +17,16 @@ in 2016, and at Amazon AI Palo Alto in 2018.
 
 My research interest lies broadly in machine learning.
 My recent focus is on the theoretical foundations and principled
-algorithm designs for deep learning and reinforcement learning.
+algorithm designs for deep learning, reinforcement learning, representation learning, and uncertainty quantification.
 
 Prior to Stanford, I was an undergrad in mathematics at
 [http://www.pku.edu.cn/ Peking University].
 
 *News*:
 
-# - *{{<font color="DarkBlue">Looking for self-motivated interns for spring and summer 2020!</font>}}*
+- *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
+
+- Two papers accepted by NeurIPS 2020. Topics include  [https://arxiv.org/abs/2006.13436 new understandings of hierarchical learning in neural networks], and [https://arxiv.org/abs/2007.03760 near-optimal self-play algorithms for learning zero-sum Markov games].
 
 - Our [https://arxiv.org/abs/2002.04017 paper] on self-play
   is accepted by ICML 2020. We present the first line of provable
@@ -52,6 +54,10 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 
 * Preprints *
 
+- [http://arxiv.org/abs/2010.01604 A Sharp Analysis of Model-based Reinforcement Learning with Self-Play.] \n
+  Qinghua Liu, Tiancheng Yu, Yu Bai, Chi Jin. \n
+  Preprint, 2020.
+  
 - [https://arxiv.org/abs/2007.03760 Near Optimal Provable Uniform
   Convergence in Off-Policy Evaluation for Reinforcement Learning.] \n
   Ming Yin, Yu Bai, Yu-Xiang Wang. \n
