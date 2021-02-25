@@ -134,6 +134,17 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   Yu Bai, Sally Goldman, Li Zhang, 2017. 
 
 == Talks
+- How Important is the Train-Validtaion Split in Meta-Learning? \n
+  One World Seminar on the Mathematics of Machine Learning, October 2020.
+
+- Provable Self-Play Algorithms for Competitive Reinforcement Learning. \n
+  ICML, July 2020. \n
+  Facebook AI Research, March 2020.
+  
+- Beyond Linearization: On Quadratic and Higher-Order Approximation of Wide Neural Networks. \n
+  Simons Institute, August 2020. \n
+  ICLR, April 2020.
+  
 - Subgradient Descent Learns Orthogonal Dictionaries. \n
   ICLR, May 2019, New Orleans, LA. \n
   
