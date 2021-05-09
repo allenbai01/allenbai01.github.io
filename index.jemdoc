@@ -44,40 +44,33 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 
 * Preprints *
 
-- [https://arxiv.org/abs/2103.04554 Exact Gap between Generalization Error and Uniform Convergence in Random Feature Models.] \n
-  Zitong Yang, Yu Bai, Song Mei. \n
-  Preprint, 2021.
-  
 - [https://arxiv.org/abs/2102.11494 Sample-Efficient Learning of Stackelberg Equilibria in General-Sum Games.] \n
   Yu Bai, Chi Jin, Huan Wang, Caiming Xiong. \n
   Preprint, 2021.
   
-- [https://arxiv.org/abs/2102.07856 Don't Just Blame Over-parametrization for Over-confidence: Theoretical Analysis of Calibration in Binary Classification.] \n
-  Yu Bai, Song Mei, Huan Wang, Caiming Xiong. \n
-  Preprint, 2021.
-
 - [https://arxiv.org/abs/2102.01748 Near-Optimal Offline Reinforcement Learning via Double Variance Reduction.] \n
   Ming Yin, Yu Bai, Yu-Xiang Wang. \n
   Preprint, 2021.
-  
+
+* Publications *
+
+- [https://arxiv.org/abs/2102.07856 Don't Just Blame Over-parametrization for Over-confidence: Theoretical Analysis of Calibration in Binary Classification.] \n
+  Yu Bai, Song Mei, Huan Wang, Caiming Xiong. \n
+  ICML, 2021.
+
+- [https://arxiv.org/abs/2103.04554 Exact Gap between Generalization Error and Uniform Convergence in Random Feature Models.] \n
+  Zitong Yang, Yu Bai, Song Mei. \n
+  ICML, 2021.
+
 - [http://arxiv.org/abs/2010.05843 How Important is the Train-Validation Split in Meta-Learning?] \n
   Yu Bai, Minshuo Chen, Pan Zhou, Tuo Zhao, Jason D. Lee, Sham Kakade, Huan Wang, Caiming Xiong. \n
-  Preprint, 2020. \n
-  Preliminary version appearing at NeurIPS 2020 workshop on Meta-Learning.
-  
+  ICML, 2021.
+  # Preliminary version appearing at NeurIPS 2020 workshop on Meta-Learning.
+
 - [http://arxiv.org/abs/2010.01604 A Sharp Analysis of Model-based Reinforcement Learning with Self-Play.] \n
   Qinghua Liu, Tiancheng Yu, Yu Bai, Chi Jin. \n
-  Preprint, 2020.
+  ICML, 2021.
 
-- [https://arxiv.org/abs/2002.04010 Taylorized Training: Towards Better Approximation of Neural Network Training at Finite Width.] \n
-  Yu Bai, Ben Krause, Huan Wang, Caiming Xiong, Richard Socher. \n
-  Preprint, 2020. [https://github.com/allenbai01/taylorized-training \[Code\]]
-
-- [https://arxiv.org/abs/1903.00184 Proximal algorithms for constrained composite optimization, with applications to solving low-rank SDPs.] \n
-  Yu Bai, John C. Duchi, Song Mei. \n
-  Preprint, 2019.
-  
-* Publications *
 
 - [https://arxiv.org/abs/2007.03760 Near Optimal Provable Uniform
   Convergence in Off-Policy Evaluation for Reinforcement Learning.] \n
@@ -130,7 +123,15 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   \n /The Annals of Statistics,/ Volume 46, Number 6A (2018), 2747-2774.
 
 * Other technical reports *
-  
+
+- [https://arxiv.org/abs/2002.04010 Taylorized Training: Towards Better Approximation of Neural Network Training at Finite Width.] \n
+  Yu Bai, Ben Krause, Huan Wang, Caiming Xiong, Richard Socher. \n
+  Preprint, 2020. [https://github.com/allenbai01/taylorized-training \[Code\]]
+
+- [https://arxiv.org/abs/1903.00184 Proximal algorithms for constrained composite optimization, with applications to solving low-rank SDPs.] \n
+  Yu Bai, John C. Duchi, Song Mei. \n
+  Preprint, 2019.
+
 - [https://arxiv.org/abs/1805.08756 Analysis of Sequantial Quadratic
   Programming through the Lens of Riemannian Optimization.] \n
   Yu Bai, Song Mei, 2018.
