@@ -4,7 +4,7 @@
 ~~~
 {}{img_left}{yub.png}{Yu Bai}{240}{320}{}
 
-*About me*: I am a senior research scientist at [https://einstein.ai/ Salesforce Research], working on theoretical machine learning and uncertainty quantification. Before joining Salesforce Research, I completed my PhD in [https://statistics.stanford.edu/ Statistics] at [http://www.stanford.edu/ Stanford University] (specializing in machine learning), where I was fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi] and was a member of the [http://statsml.stanford.edu/index.html Statistical Machine Learning Group]. During my PhD I also spent times at the research labs of Google and Amazon. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
+*About me*: I am a Senior Research Scientist at [https://einstein.ai/ Salesforce Research], working on theoretical machine learning and uncertainty quantification. Before joining Salesforce Research, I completed my PhD in [https://statistics.stanford.edu/ Statistics] at [http://www.stanford.edu/ Stanford University] (specializing in machine learning), where I was fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi] and was a member of the [http://statsml.stanford.edu/index.html Statistical Machine Learning Group]. During my PhD I also spent times at the research labs of Google and Amazon. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
 
 # During my PhD, I also spent two summers in research labs in the industry: at [https://research.google.com Google Research] in 2016, and at Amazon AI Palo Alto in 2018.
 
@@ -49,20 +49,23 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 - [https://arxiv.org/abs/2106.05515 Understanding the Under-Coverage Bias in Uncertainty Estimation.] \n
   Yu Bai, Song Mei, Huan Wang, Caiming Xiong. \n
   Preprint, 2021. \n
-  Preliminary version appearing as /spotlight presentation/ at ICML 2021 Workshop on Distribution-Free Uncertainty Quantification. \n
+  Appearing as /spotlight presentation/ at ICML 2021 Workshop on Distribution-Free Uncertainty Quantification. \n
   Also appearing at ICML 2021 Workshop on Uncertainty \& Robustness in Deep Learning.
   
 - [https://arxiv.org/abs/2106.04895 Policy Finetuning: Bridging Sample-Efficient Offline and Online Reinforcement Learning.] \n
   Tengyang Xie, Nan Jiang, Huan Wang, Caiming Xiong, Yu Bai. \n
-  Preprint, 2021.
+  Preprint, 2021. \n
+  Appearing at ICML 2021 Workshop on Reinforcement Learning Theory.
   
 - [https://arxiv.org/abs/2102.11494 Sample-Efficient Learning of Stackelberg Equilibria in General-Sum Games.] \n
   Yu Bai, Chi Jin, Huan Wang, Caiming Xiong. \n
-  Preprint, 2021.
+  Preprint, 2021. \n
+  Appearing as /spotlight presentation/ at ICML 2021 Workshop on Reinforcement Learning Theory.
   
 - [https://arxiv.org/abs/2102.01748 Near-Optimal Offline Reinforcement Learning via Double Variance Reduction.] \n
   Ming Yin, Yu Bai, Yu-Xiang Wang. \n
-  Preprint, 2021.
+  Preprint, 2021. \n
+  Appearing at ICML 2021 Workshop on Reinforcement Learning Theory.
 
 * Publications *
 
