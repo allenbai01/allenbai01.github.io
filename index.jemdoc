@@ -14,6 +14,8 @@ My research interest lies broadly in machine learning. My recent focus is on the
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
 
+- Four papers accepted at NeurIPS 2021.
+
 - Four papers accepted at ICML 2021.
 
 - New [https://blog.einstein.ai/beyond-ntk/ blog] [http://www.offconvex.org/2021/03/25/beyondNTK/ post] on our "Beyond NTK" line of work. We explore how to escape the "NTK ball" around the initialization, and why that can bring provable learning benefits to neural networks for learning certain functions.
@@ -44,31 +46,33 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 
 == Research
 
-* Preprints *
+# * Preprints *
 
-- [https://arxiv.org/abs/2106.05515 Understanding the Under-Coverage Bias in Uncertainty Estimation.] \n
-  Yu Bai, Song Mei, Huan Wang, Caiming Xiong. \n
-  Preprint, 2021. \n
-  Appearing as /spotlight presentation/ at ICML 2021 Workshop on Distribution-Free Uncertainty Quantification. \n
-  Also appearing at ICML 2021 Workshop on Uncertainty \& Robustness in Deep Learning.
-  
-- [https://arxiv.org/abs/2106.04895 Policy Finetuning: Bridging Sample-Efficient Offline and Online Reinforcement Learning.] \n
-  Tengyang Xie, Nan Jiang, Huan Wang, Caiming Xiong, Yu Bai. \n
-  Preprint, 2021. \n
-  Appearing at ICML 2021 Workshop on Reinforcement Learning Theory.
-  
-- [https://arxiv.org/abs/2102.11494 Sample-Efficient Learning of Stackelberg Equilibria in General-Sum Games.] \n
-  Yu Bai, Chi Jin, Huan Wang, Caiming Xiong. \n
-  Preprint, 2021. \n
-  Appearing as /spotlight presentation/ at ICML 2021 Workshop on Reinforcement Learning Theory.
-  
-- [https://arxiv.org/abs/2102.01748 Near-Optimal Offline Reinforcement Learning via Double Variance Reduction.] \n
-  Ming Yin, Yu Bai, Yu-Xiang Wang. \n
-  Preprint, 2021. \n
-  Appearing at ICML 2021 Workshop on Reinforcement Learning Theory.
+
 
 * Publications *
 
+- [https://arxiv.org/abs/2106.05515 Understanding the Under-Coverage Bias in Uncertainty Estimation.] \n
+  Yu Bai, Song Mei, Huan Wang, Caiming Xiong. \n
+  NeurIPS 2021 (spotlight presentation). \n
+  # Appearing as /spotlight presentation/ at ICML 2021 Workshop on Distribution-Free Uncertainty Quantification. \n
+  # Also appearing at ICML 2021 Workshop on Uncertainty \& Robustness in Deep Learning.
+  
+- [https://arxiv.org/abs/2106.04895 Policy Finetuning: Bridging Sample-Efficient Offline and Online Reinforcement Learning.] \n
+  Tengyang Xie, Nan Jiang, Huan Wang, Caiming Xiong, Yu Bai. \n
+  NeurIPS 2021. \n
+  # Appearing at ICML 2021 Workshop on Reinforcement Learning Theory.
+  
+- [https://arxiv.org/abs/2102.11494 Sample-Efficient Learning of Stackelberg Equilibria in General-Sum Games.] \n
+  Yu Bai, Chi Jin, Huan Wang, Caiming Xiong. \n
+  NeurIPS 2021. \n
+  # Appearing as /spotlight presentation/ at ICML 2021 Workshop on Reinforcement Learning Theory.
+  
+- [https://arxiv.org/abs/2102.01748 Near-Optimal Offline Reinforcement Learning via Double Variance Reduction.] \n
+  Ming Yin, Yu Bai, Yu-Xiang Wang. \n
+  NeurIPS 2021. \n
+  # Appearing at ICML 2021 Workshop on Reinforcement Learning Theory.
+  
 - [https://arxiv.org/abs/2102.07856 Don't Just Blame Over-parametrization for Over-confidence: Theoretical Analysis of Calibration in Binary Classification.] \n
   Yu Bai, Song Mei, Huan Wang, Caiming Xiong. \n
   ICML 2021.
