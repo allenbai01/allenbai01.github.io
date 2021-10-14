@@ -14,24 +14,23 @@ My research interest lies broadly in machine learning. My recent focus is on the
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
 
-- Four papers accepted at NeurIPS 2021.
+- \[Oct 2021\] Invited talk at Rutgers University ([https://statistics.rutgers.edu/news-events/seminars statistics department seminar]) on understanding the under-coverage bias in [[https://arxiv.org/abs/2106.05515 uncertainy estimation] and [https://arxiv.org/abs/2102.07856 calibration]. Thanks [https://linjunz.github.io/ Linjun] for inviting!
 
-- Four papers accepted at ICML 2021.
+- \[Sep 2021\] Four papers accepted at NeurIPS 2021.
 
-- New [https://blog.einstein.ai/beyond-ntk/ blog] [http://www.offconvex.org/2021/03/25/beyondNTK/ post] on our "Beyond NTK" line of work. We explore how to escape the "NTK ball" around the initialization, and why that can bring provable learning benefits to neural networks for learning certain functions.
+- \[May 2021\] Four papers accepted at ICML 2021.
 
-- Two papers accepted by NeurIPS 2020. Topics include  [https://arxiv.org/abs/2006.13436 new understandings of hierarchical learning in neural networks], and [https://arxiv.org/abs/2007.03760 near-optimal self-play algorithms for learning zero-sum Markov games].
+- \[Mar 2021\] New [https://blog.einstein.ai/beyond-ntk/ blog] [http://www.offconvex.org/2021/03/25/beyondNTK/ post] on our "Beyond NTK" line of work. We explore how to escape the "NTK ball" around the initialization, and why that can bring provable learning benefits to neural networks for learning certain functions.
 
-- Our [https://arxiv.org/abs/2002.04017 paper] on self-play
+- \[Sep 2020\] Two papers accepted by NeurIPS 2020. Topics include  [https://arxiv.org/abs/2006.13436 new understandings of hierarchical learning in neural networks], and [https://arxiv.org/abs/2007.03760 near-optimal self-play algorithms for learning zero-sum Markov games].
+
+- \[May 2020\] Our [https://arxiv.org/abs/2002.04017 paper] on self-play
   is accepted by ICML 2020. We present the first line of provable
   self-play algorithms for two-player Markov games.
 
-- In October 2019, I will be joining [https://einstein.ai/ Salesforce
-  Research] in Palo Alto as a research scientist. 
+# - In October 2019, I will be joining [https://einstein.ai/ Salesforce Research] in Palo Alto as a research scientist. 
 
-- I am attending the [https://simons.berkeley.edu/programs/dl2019
-  Foundations of Deep Learning] program at the Simons Institute
-  (Berkeley) as a research fellow in May - August 2019. 
+# - I am attending the [https://simons.berkeley.edu/programs/dl2019 Foundations of Deep Learning] program at the Simons Institute (Berkeley) as a research fellow in May - August 2019. 
 
 *Contact*:
 
@@ -162,6 +161,14 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   Yu Bai, Sally Goldman, Li Zhang, 2017. 
 
 == Talks
+
+- Understanding the Under-Coverage Bias in Uncertainty Estimation. \n
+  Statistics Department Seminar, Rutgers University, October 2021. \n
+  Spotlight presentation at ICML 2021 Workshop on Distribution-free Uncertainty Quantification, July 2021.
+
+- Sample-Efficient Learning of Stackelberg Equilibria in General-Sum Games. \n
+  Spotlight presentation at ICML 2021 Workshop on Reinforcement Learning Theory, July 2021.
+
 - How Important is the Train-Validtaion Split in Meta-Learning? \n
   One World Seminar on the Mathematics of Machine Learning, October 2020.
 
