@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-11-12T09:48:13-08:00</updated><id>/feed.xml</id><title type="html">RL Theory</title><subtitle>TBA.</subtitle><entry><title type="html">Recent Progresses in Multi-Agent RL Theory</title><link href="/2021/11/05/marl-blog.html" rel="alternate" type="text/html" title="Recent Progresses in Multi-Agent RL Theory" /><published>2021-11-05T10:25:17-07:00</published><updated>2021-11-05T10:25:17-07:00</updated><id>/2021/11/05/marl-blog</id><content type="html" xml:base="/2021/11/05/marl-blog.html">&lt;p&gt;\(\def\cS{\mathcal S}\)
+\(\def\cA{\mathcal A}\)
+\(\def\cF{\mathcal F}\)
+\(\def\mc{\mathcal}\)
+\(\def\P{\mathbb P}\)
+\(\def\E{\mathbb E}\)
+\(\def\V{\mathbb V}\)
+\(\def\R{\mathbb R}\)
+\(\def\tO{\widetilde{\mathcal{O}}}\)
+\(\def\eps{\varepsilon}\)
+\(\def\epsilon{\varepsilon}\)
+\(\def\setto{\leftarrow}\)
+\(\def\up{\overline}\)
+\(\def\low{\underline}\)
+\(\def\what{\widehat}\)&lt;/p&gt;
+
+&lt;p&gt;Reinforcement learning (RL) has made substantial empirical progresses in solving hard AI challenges in the past few years. A big portion of these progresses—&lt;a href=&quot;https://www.nature.com/articles/nature16961&quot;&gt;Go&lt;/a&gt;, &lt;a href=&quot;https://openai.com/five/&quot;&gt;Dota 2&lt;/a&gt;, &lt;a href=&quot;https://www.nature.com/articles/s41586-019-1724-z&quot;&gt;Starcraft&lt;/a&gt;, &lt;a href=&quot;https://arxiv.org/abs/2004.13332&quot;&gt;economic simulation&lt;/a&gt;, &lt;a href=&quot;https://arxiv.org/abs/1909.07528&quot;&gt;social behavior learning&lt;/a&gt;, and so on—come from &lt;em&gt;multi-agent RL&lt;/em&gt;, that is, sequential decision making involving more than one agents. While the theoretical study of (single-agent) RL has a long history and a vastly growing recent interest, multi-agent RL theory is arugably a newer and less developed field, with its own unique challenges and opportunities that we feel very excited about.&lt;/p&gt;
+
+&lt;p&gt;In this extended blog post, we present a brief overview of the basics of multi-agent RL theory, along with some recent theoretical developments in the past few years. We will cover the basic formulations, learning goals, planning algorithms, as well as recent advances in sample-efficient learning algorithms under the interactive (exploration) setting which will be our main focus. As a disclaimer, for clarity of presentation, our coverage of relevant research works will be necessarily selective; however, BLAH.&lt;/p&gt;
+
+&lt;p&gt;The majority of this blog will assume familiarity with the basics of
+RL theory with a single agent (for example, materials in this
+&lt;a href=&quot;https://rltheorybook.github.io/&quot;&gt;fantastic book&lt;/a&gt;). We will focus on “what is different” when it comes to multi-agent, and discuss the various recent developments and opportunities therein.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-formulation-markov-games&quot;&gt;1. Formulation: Markov Games&lt;/h3&gt;
+
+&lt;p&gt;There are various formulations for multi-agent RL. In this blog post, we will focus on &lt;strong&gt;Markov Games&lt;/strong&gt; (MG; &lt;a href=&quot;https://www.pnas.org/content/39/10/1095&quot;&gt;Shapley 1953&lt;/a&gt;, &lt;a href=&quot;https://courses.cs.duke.edu/spring07/cps296.3/littman94markov.pdf&quot;&gt;Littman 1994&lt;/a&gt;), a generalization of the widely-used Markov Decision Process (MDP) framework into the case of multiple agents. We remark that there exists various other frameworks for modeling multi-agent sequential decision making, such as &lt;a href=&quot;https://en.wikipedia.org/wiki/Extensive-form_game&quot;&gt;extensive-form games&lt;/a&gt; which are more often used for modeling imperfect information (e.g. Poker).&lt;/p&gt;
+
+&lt;p&gt;Roughly speaking, a Markov Game has the same (state, action) -&amp;gt; (reward, next state) structure as in an MDP, except that now “action” is replaced by the joint actions of all players, and “reward” is replaced by a collection of reward functions so that each player has her own reward. In words:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Markov Games with m players&lt;/strong&gt;: (state, m actions) -&amp;gt; (m rewards, next state).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Formally, we consider a multi-player general-sum Markov game with $m$ players, which can be described as a tuple \(\text{MG}(H, \mathcal{S}, \{\mathcal{A}_{i}\}_{i=1}^{m}, \mathbb{P},\{r_{i}\}_{i=1}^{m})\), where&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;$H$ is the horizon length,&lt;/li&gt;
+  &lt;li&gt;$\mathcal{S}$ is the state space with $\vert \mathcal{S}\vert=S$.&lt;/li&gt;
+  &lt;li&gt;\(\mathcal{A}_i\) is the action space for the $i$-th player with \(\vert\mathcal{A}_i\vert=A_i\). All players act simultaneously; we use \(\boldsymbol{a}=(a_1,\dots,a_m)\in \prod_{i=1}^m \mathcal{A}_i\) to denote a joint action,&lt;/li&gt;
+  &lt;li&gt;\(\mathbb{P}=\{\mathbb{P}_h\}\) is the collection of transition probabilities, where \(\mathbb{P}_h(s_{h+1} \vert s_h, \boldsymbol{a}_h)\) is the probability of transiting to the next state \(s_{h+1}\), given state-action pair $(s_h, \boldsymbol{a}_h)$ at step $h$,&lt;/li&gt;
+  &lt;li&gt;\(r_i\) is the reward function for the \(i\)-th player. At step $h$, the $i$-th player will experience reward $r_{i,h}(s_h, \boldsymbol{a}_h)\in[0, 1]$. For simplicity of presentation, we assume the reward is deterministic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A trajectory of an MG looks like this:&lt;/p&gt;
+
+&lt;p&gt;[
+s_1, (a_{1, 1}, \dots, a_{1, m}), (r_{1,1},\dots, r_{1,m}), s_2, \dots, s_H, (a_{H, 1}, \dots, a_{H, m}), (r_{H,1}, \dots, r_{H, m}).
+]&lt;/p&gt;
+
+&lt;p&gt;Finally, a (Markov) policy for the $i$-th player is denoted by \(\pi_i=\{\pi_{h,i}\}_{h=1}^H\), where \(\pi_{h,i}(a_{h,i}\vert s_h)\) is the probability of taking action $a_{h,i}$ at step $h$ and state $s_h$. We use \(V_{h,i}^{\pi}(s_h)\) and $Q_{h,i}^{\pi}(s_h, \boldsymbol{a}_h)$ to denote the value and Q-value functions for player $i$ at step $h$, when joint policy \(\pi=(\pi_1,\dots,\pi_m)\) is used. These notations are all parallel to single-agent MDPs. We assume the initial state $s_1$ is deterministic, so that \(V_{1,i}^{\pi} := V_{1,i}^\pi(s_1)\) is the overall return for the $i$-th player.&lt;/p&gt;
+
+&lt;h4 id=&quot;11-special-case-zero-sum-games&quot;&gt;1.1 Special case: Zero-sum games&lt;/h4&gt;
+
+&lt;p&gt;An important special case of Markov games is zero-sum (competitive) MGs:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A &lt;strong&gt;zero-sum Markov Game&lt;/strong&gt; is a Markov Game with $m=2$, and $r_1\equiv -r_2$.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As each player wishes to maximize her own reward, in a zero-sum MG, the two players are in a purely competitive relationship. We thus define the overall &lt;em&gt;value&lt;/em&gt; in a zero-sum MG to be player 1’s value function: $V_h:=V_{h,1}$. We call player 1 the &lt;em&gt;max player&lt;/em&gt; and player 2 the &lt;em&gt;min player&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Zero-sum MGs model a number of real-world two-player strategic games, such as Go, Chess, Shogi, etc. From a mathematical perspective, zero-sum MGs is perhaps the most immediate extension of a single-agent MDP—solving it can be thought of as a certain min-max optimization, akin to how solving a single-agent MDP is a certain maximization problem.&lt;/p&gt;
+
+&lt;!-- &lt;span style=&quot;color:red&quot;&gt; let&apos;s ignore collaborative games?&lt;/span&gt; --&gt;
+
+&lt;h3 id=&quot;2-nash-equilibrium&quot;&gt;2. Nash equilibrium&lt;/h3&gt;
+
+&lt;p&gt;In an MDP, the learning goal for an agent is to maximize her own cumulative reward. In an MG, this is still the learning goal for each individual agent, but we have to additionally decide on some notion of &lt;em&gt;equilibrium&lt;/em&gt; to combine these individual optimality conditions.&lt;/p&gt;
+
+&lt;p&gt;Throughout the majority of this blog post, we consider the celebrated notion of Nash equilibrium (&lt;a href=&quot;https://www.jstor.org/stable/1969529&quot;&gt;Nash 1951&lt;/a&gt;), which states that for each player $i$, fixing all other player’s policies, her own policy is a &lt;em&gt;best response&lt;/em&gt; (i.e. maximizes her own cumulative reward):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Nash equilibrium&lt;/strong&gt;: Each player plays the best response to all other player’s policies.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It is clear that the Nash equilibrium strictly generalizes the notion of an optimal policy for MDPs—An MG reduces to an MDP if player 1 acts and all other players are dummy. In this case, the best response of player 1 reduces to maximizing her own reward with respect to the environment (MDP) only.&lt;/p&gt;
+
+&lt;p&gt;Formally, we define an $\eps$-approximate Nash equilibrium as follows:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: A product policy $\pi=(\pi_1,\dots, \pi_m)$ is an &lt;strong&gt;$\eps$-approximate Nash equilibrium&lt;/strong&gt;, if we have
+[
+\max_{i\in[m]} \big( \max_{\pi_i’} V_{1,i}^ {\pi_i’, \pi_{-i}}- V_{1,i}^{\pi_i, \pi_{-i}} \big) \le \eps.
+]
+We say $\pi$ is an (exact) Nash equilibrium if the above holds with $\eps=0$.&lt;/p&gt;
+
+&lt;p&gt;The Nash equilibrium need not be unique for (general-sum) MGs. Also, note that by definition any Nash policy must be a &lt;em&gt;product policy&lt;/em&gt; (i.e. all the players execute their own policy independently). There exist other proper notions of equilibria when players do play in a correlated fashion; we will dive deeper into this in Section 5.&lt;/p&gt;
+
+&lt;h4 id=&quot;21-nash-equilibrium-in-zero-sum-games&quot;&gt;2.1 Nash equilibrium in zero-sum games&lt;/h4&gt;
+
+&lt;p&gt;The Nash equilibrium enjoys additional nice properties in zero-sum MGs. Recall that $V_1^{\pi_1, \pi_2}$ denotes player 1’s value for which $\pi_1$ seeks to maximize and $\pi_2$ seeks to minimize.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Proposition&lt;/strong&gt;: For any zero-sum MG, we have&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;(Unique &lt;em&gt;Nash value&lt;/em&gt;) There exists some $V_1^{\star, \star}\in[0,H]$ such that any Nash equilibrium $(\pi_1^\star, \pi_2^\star)$ achieves this same value:
+[
+V_1^{\pi_1^\star, \pi_2^\star} = V_1^{\star, \star},
+]
+even though the &lt;em&gt;Nash policy&lt;/em&gt; $(\pi_1^\star, \pi_2^\star)$ may not be unique.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt; (Strong duality) Any Nash equilibrium is also a min-max solution and a max-min solution. In other words, the following two inequalities (which holds for any pair of $(\pi_1, \pi_2)$)
+\[
+\left\{
+\begin{aligned}
+&amp;amp; \max_{\pi_1&apos;} V_1^{\pi_1&apos;, \pi_2}  \ge \min_{\pi_2&apos;} \max_{\pi_1&apos;} V_1^{\pi_1&apos;, \pi_2&apos;} \ge \max_{\pi_1&apos;} \min_{\pi_2&apos;} V_1^{\pi_1&apos;, \pi_2&apos;} \ge \min_{\pi_2&apos;} V_1^{\pi_1, \pi_2&apos;} \\
+&amp;amp; \max_{\pi_1&apos;} V_1^{\pi_1&apos;, \pi_2}  \ge V_1^{\pi_1, \pi_2} \ge \min_{\pi_2&apos;} V_1^{\pi_1, \pi_2&apos;}
+\end{aligned}
+\right.
+\]
+become &lt;b&gt;equalities&lt;/b&gt; ($=V_1^{\star, \star}$) if $(\pi_1, \pi_2)$ is a Nash equilibrium. &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These nice properties make zero-sum MGs an appealing setting for learning Nash, which will be the focus of our next two sections.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-nash-planning-algorithms-in-zero-sum-mgs&quot;&gt;3. Nash Planning algorithms in zero-sum MGs&lt;/h3&gt;
+
+&lt;p&gt;Given the above setup, a natural first question is: How do we compute the Nash equilibrium in zero-sum MGs assuming known transitions and rewards? In other words, what is a good &lt;em&gt;Nash planning&lt;/em&gt; algorithm? It turns out that a direct multi-agent adaptaion of Value Iteration, dating back to (&lt;a href=&quot;https://www.pnas.org/content/39/10/1095&quot;&gt;Shapley 1953&lt;/a&gt;), gives an algorithm for computing Nash for a known game. We term this algorithm as &lt;em&gt;Nash-VI&lt;/em&gt; (Nash Value Iteration).&lt;/p&gt;
+
+&lt;p&gt;Similar as how Value Iteration computes the optimal values and policies for an MDP using backward dynamical programming, Nash-VI performs similar backward updates on an MG, except that the policy selection mechanism is adapted: The greedy policy selection over the vector $Q^\star(s, \cdot)$ within VI is now replaced by a \(\text{MatrixNash}\) subroutine over the matrix $Q^{\star, \star}(s, \cdot, \cdot)$. This makes sense given that the learning goal is now learning a Nash equilibrium policy over the two players jointly, instead of the reward maximizing policy for a single player. In words,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Nash-VI&lt;/strong&gt; = Value Iteration with \(\text{Greedy}(\cdot)\) replaced by \(\text{MatrixNash}(\cdot)\).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Algorithm&lt;/strong&gt; (Nash-VI):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Initialize \(V_{H+1}(s)\equiv 0\) for all \(s\in\cS\).&lt;/li&gt;
+  &lt;li&gt;For $h=H,\dots,1$, compute the following over $s\in\cS$ and all $(a_1, a_2)\in\cA_1\times \cA_2$:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+\[
+\begin{aligned}
+&amp;amp; Q_h^{\star, \star}(s, a_1, a_2) = r_h(s, a_1, a_2) + (\P_h V_{h+1})(s,
+a_1, a_2), \\\
+&amp;amp; (\pi_{1,h}^\star(\cdot\vert s), \pi_{2,h}^\star(\cdot\vert s)) = \text{MatrixNash}(Q_h^{\star, \star}(s,\cdot,\cdot)), \\\
+&amp;amp; V^{\star, \star}_h(s) = \pi_{1,h}^\star(\cdot \vert s)^\top Q_h(s,\cdot,\cdot) \pi_{2,h}^\star(\cdot \vert s).
+\end{aligned}
+\]
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Return policies $(\pi_1^\star, \pi_2^\star)$ where \(\pi_i^\star=\{\pi_{i,h}^\star(\cdot\vert s)\}_{(h,s)\in[H]\times \cS}\).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Above, the \(\text{MatrixNash}\) subroutine for any matrix \(M\in \R^{A_1\times A_2}\) is defined as
+\[
+\begin{align}\label{equation:matrixnash}
+\text{MatrixNash}(M) := \arg \big( \max_{\pi_1 \in \Delta_{\cA_1}} \min_{\pi_2 \in \Delta_{\cA_2}} \pi_1^\top M \pi_2 \big),
+\end{align}
+\]
+which can be implemented efficiently using linear programming.&lt;/p&gt;
+
+&lt;p&gt;Using backward induction over $h$, it is straightforward to show that the policies $(\pi_1^\star, \pi_2^\star)$ returned by Nash-VI is indeed a Nash equilibrium of the desired MG.&lt;/p&gt;
+
+&lt;p&gt;Value Iteration is not the only algorithm for computing Nash. As an alternative, the &lt;em&gt;Nash Q-Learning&lt;/em&gt; algorithm (&lt;a href=&quot;https://www.jmlr.org/papers/volume4/hu03a/hu03a.pdf&quot;&gt;Hu &amp;amp; Wellman 2003&lt;/a&gt;) performs incremental updates on the Q values, and uses the same matrix Nash subroutine to compute (Nash) V values from the Q values.&lt;/p&gt;
+
+&lt;p&gt;Further, both Nash-VI and Nash Q-learning can be adapted when the game transitions and rewards are not known and have to be estimated from samples. For example, using random samples from a &lt;em&gt;simulator&lt;/em&gt; (can query any $(s_h, a_{h,1}, a_{h,2})$ and obtain a sample of $(r_h, s_{h+1})$), an $\eps$-Nash can be learned with $\tO(H^3SA_1A_2/\eps^2)$ samples with high probability, using variants of either Nash Q-learning (&lt;a href=&quot;https://arxiv.org/abs/1908.11071&quot;&gt;Sidford et al. 2019&lt;/a&gt;) or Nash-VI (&lt;a href=&quot;https://arxiv.org/abs/2007.07461&quot;&gt;Zhang et al. 2020&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Centralization&lt;/strong&gt;. Finally, we remark that both Nash-VI and Nash Q-learning are &lt;em&gt;centralized&lt;/em&gt; algorithms—that is, the computation for the two players are coupled (due to the joint computation in the matrix Nash subroutine). In order to execute these algorithms, the two players could not act in isolation, and have to coordinate or even live in a same centralized machine (self-play). In Section 4.2, we will present another decentralized algorithm, whose advantage will be best illustrated in the more challenging setting of interactive learning (exploration setting).&lt;/p&gt;
+
+&lt;h3 id=&quot;4-sample-efficient-learning-of-nash-in-zero-sum-mgs&quot;&gt;4. Sample-efficient learning of Nash in zero-sum MGs&lt;/h3&gt;
+
+&lt;p&gt;We now move on to the more challenging setting of learning Nash from interactive learning environments. Rather than assuming full knowledge or simulators of the game, we now assume that the algorithm can only learn about the game by playing repeated episodes of the game in a trial-and-error fashion (also known as the interactive/exploration setting). Our goal is to design algorithms that are &lt;em&gt;sample-efficient&lt;/em&gt;, i.e. can learn an approximate Nash with as few episodes of play as possible.&lt;/p&gt;
+
+&lt;h4 id=&quot;41-optimistic-nash-vi&quot;&gt;4.1 Optimistic Nash-VI&lt;/h4&gt;
+
+&lt;p&gt;Our first algorithm is an optimistic variant of the Nash-VI algorithm we have seen in Section 3. This algorithm first appeared in (&lt;a href=&quot;https://arxiv.org/abs/2010.01604&quot;&gt;Liu et al. 2020&lt;/a&gt;), and builds on earlier sample-efficient Nash-VI type algorithms within (&lt;a href=&quot;https://arxiv.org/abs/2002.04017&quot;&gt;Bai &amp;amp; Jin 2020&lt;/a&gt;, &lt;a href=&quot;https://arxiv.org/abs/2002.07066&quot;&gt;Xie et al. 2020&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Algorithm&lt;/strong&gt; (Optimistic Nash-VI, sketch):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Initialize \(\up{Q}_h(s, a_1, a_2)\setto H\) and \(\low{Q}_h(s, a_1, a_2)\setto 0\) for all \((s, a_1, a_2, h)\).&lt;/li&gt;
+  &lt;li&gt;For episode $k=1,\dots,K$:
+    &lt;ul&gt;
+      &lt;li&gt;For step $h=H,\dots,1$:
+        &lt;ul&gt;
+          &lt;li&gt;For all $(s, a_1, a_2)\in\cS\times \cA_1\times \cA_2$:
+            &lt;ul&gt;
+              &lt;li&gt;Set $t\setto N_h(s, a_1, a_2)$ (visitation count).&lt;/li&gt;
+              &lt;li&gt;If $t&amp;gt;0$ then
+                &lt;ul&gt;
+                  &lt;li&gt;Compute bonus \(\beta\setto \text{BernsteinBonus}(t, \what{\V}_h[(\up{V}_{h+1} + \low{V}_{h+1})/2] (s, a_1, a_2)\).&lt;/li&gt;
+                  &lt;li&gt;Compute additional bonus \(\gamma\setto (c/H) \what{\P}_h(\up{V}_{h+1} - \low{V}_{h+1})(s, a_1, a_2)\).&lt;/li&gt;
+                  &lt;li&gt;\(\up{Q}_h(s, a_1, a_2)\setto \min\{ (r_h + \what{P}_h\up{V}_{h+1})(s, a_1, a_2) + \beta + \gamma, H \}\).&lt;/li&gt;
+                  &lt;li&gt;\(\low{Q}_h(s, a_1, a_2)\setto \max\{ (r_h + \what{P}_h\low{V}_{h+1})(s, a_1, a_2) - \beta - \gamma, 0 \}\).&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;For all $s\in \cS$:
+            &lt;ul&gt;
+              &lt;li&gt;\(\pi_h(\cdot, \cdot \vert s) \setto \text{MatrixCCE}(\up{Q}_h(s, \cdot, \cdot), \low{Q}_h(s, \cdot, \cdot))\).&lt;/li&gt;
+              &lt;li&gt;\(\up{V}_h(s) \setto \langle \pi_h(\cdot, \cdot \vert s), \up{Q}_h(s, \cdot, \cdot) \rangle\).&lt;/li&gt;
+              &lt;li&gt;\(\low{V}_h(s) \setto \langle \pi_h(\cdot, \cdot \vert s), \low{Q}_h(s, \cdot, \cdot) \rangle\).&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Play an episode using (correlated) policy $\pi$, and update the empirical models $\what{\P}_h$, $N_h$.&lt;/li&gt;
+      &lt;li&gt;Set $(\pi_1^k, \pi_2^k)$ to be the marginal policy of the current policy $\pi$.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Main techniques&lt;/strong&gt;. Optimistic Nash-VI enhances the original Nash-VI in two main aspects in order to perform sample-efficient exploration in an interactive learning setting:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The algorithm maintains &lt;em&gt;two optimistic Q estimates&lt;/em&gt;: An upper estimate $\up{Q}_h$, and a lower estimate $\low{Q}_h$. The amount of optimisticity is governed by the two bonus functions $\beta$ and $\gamma$, where $\beta$ is similar to the usual Bernstein bonus for exploration in single-agent settings (&lt;a href=&quot;https://arxiv.org/abs/1703.05449&quot;&gt;Azar et al. 2017&lt;/a&gt;, &lt;a href=&quot;https://arxiv.org/abs/1807.03765&quot;&gt;Jin et al. 2018&lt;/a&gt;), and $\gamma$ is a specifically designed model-based bonus that allows a tighter analysis, akin to the one used in (&lt;a href=&quot;https://arxiv.org/abs/1811.03056&quot;&gt;Dann et al. 2018&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt; The policy is now computed using a &lt;i&gt;matrix CCE subroutine&lt;/i&gt;. For any pair of matrices $\up{M}, \low{M}\in\R^{A_1\times A_2}$, $ \text{MatrixCCE}(\up{M}, \low{M})$ is defined as any &lt;i&gt;correlated policy&lt;/i&gt; $\pi \in \Delta_{\cA_1\times \cA_2}$ such that the following holds:
+\[
+\begin{aligned}
+&amp;amp; \E_{(a_1, a_2)\sim \pi} [\up{M}(a_1, a_2)] \ge \max_{a_1&apos;\in \cA_1} \E_{(a_1, a_2)\sim \pi}[\up{M}(a_1&apos;, a_2)], \\
+&amp;amp; \E_{(a_1, a_2)\sim \pi} [\low{M}(a_1, a_2)] \le \min_{a_2&apos;\in \cA_2} \E_{(a_1, a_2)\sim \pi}[\low{M}(a_1, a_2&apos;)].
+\end{aligned}
+\]  
+In other words, if the two players jointly play $\pi$, the max player has no gain in deviating for the payoff matrix $\up{M}$, and the min player has no gain in deviating for the payoff matrix $\low{M}$. &lt;/p&gt;
+    &lt;p&gt;The purpose of this matrix CCE subroutine is to find a good policy with respect to the upper / lower estimates in a computationally efficient fashion (this subroutine can be implemented using linear programming). Indeed, here a general-sum matrix Nash subroutine with respect to $(\up{Q}_h(s,\cdot,\cdot), \low{Q}_h(s,\cdot,\cdot))$ may as well be used (and leads to the same sample complexity results), yet would suffer from computational difficulties for large $A_1,A_2$, as finding Nash in a two-player general-sum matrix game is PPAD hard (&lt;a href=&quot;https://people.csail.mit.edu/costis/appxhardness.pdf&quot;&gt;Daskalakis et al. 2013&lt;/a&gt;).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These techniques enable the optimistic Nash-VI algorithm to achieve the following sample complexity guarantee for learning Nash in zero-sum MGs.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt; (&lt;a href=&quot;https://arxiv.org/abs/2010.01604&quot;&gt;Liu et al. 2020&lt;/a&gt;): With high probability, optimistic Nash-VI achieves $\tO(\sqrt{H^3SA_1A_2K})$ regret, and outputs an $\eps$-Nash within $K=\tO(H^3SA_1A_2/\eps^2)$ episodes of play.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:red&quot;&gt; define regret? &lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Centralized training, decentralized execution&lt;/strong&gt;. Note that the $\pi$ returned by the matrix CCE subroutines and used in the exploration step is a correlated policy. Therefore, the entire algorithm has to be executed in a centralized fashion. However, the final output is the &lt;em&gt;marginals&lt;/em&gt; of this correlated policy and thus is an (approximately Nash) product policy that can be deployed in a decentralized way. This is reminiscent of the “centralized training, decentralized execution” paradigm which is also commonly used in empirical multi-agent RL.&lt;/p&gt;
+
+&lt;h4 id=&quot;42-nash-v-learning&quot;&gt;4.2 Nash V-Learning&lt;/h4&gt;
+
+&lt;p&gt;Our second algorithm is a recently proposed algorithm, &lt;em&gt;Nash V-Learning&lt;/em&gt;, which first appeared in (&lt;a href=&quot;https://arxiv.org/abs/2006.12007&quot;&gt;Bai et al. 2020&lt;/a&gt;). Nash V-Learning is a &lt;em&gt;decentralized&lt;/em&gt; algorithm: Each player can run it entirely on her own as long as she observes the states, rewards, and next states (as if it were a single-agent MDP). The opponent’s action does not need to be observed. We present the max player version of Nash V-Learning as follows (the min player version is symmetric).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Algorithm&lt;/strong&gt; (Nash V-Learning, max player version):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;For all $(h, s, a_1)\in [H]\times \cS\times \cA_1$, initialize \(\up{V}_h(s)\setto H-h+1\), \(\pi_{1,h}(a_1 \vert s)\setto 1/A_1\), and $N_h(s)\setto 0$.&lt;/li&gt;
+  &lt;li&gt;For episode $k=1,\dots,K$:
+    &lt;ul&gt;
+      &lt;li&gt;Receive $s_1$.&lt;/li&gt;
+      &lt;li&gt;For $h=1,\dots,H$:
+        &lt;ul&gt;
+          &lt;li&gt;Take action $a_{1,h}\sim \pi_{1,h}(\cdot \vert s_h)$, observe reward $r_h$ and next state $s_{h+1}$.&lt;br /&gt;
+  (No need to observe opponent’s action.)&lt;/li&gt;
+          &lt;li&gt;$t=N_h(s_h)\setto N_h(s_h)+1$.&lt;/li&gt;
+          &lt;li&gt;\(\up{V}_{h}(s_h)\setto (1-\alpha_t) \up{V}_h(s_h) + \alpha_t (r_h + \min\{\up{V}_{h+1}(s_{h+1}), H-h\} + \beta_t)\).&lt;/li&gt;
+          &lt;li&gt;\(\pi_{1,h}(\cdot \vert s_h) \setto \text{Adv_Bandit_Update}(a_{1,h}, \frac{H-r_h-\min\{\up{V}_{h+1}(s_{h+1}), H-h\} }{H})\) on the $(s_h, h)$-th adversarial bandit.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Algorithm&lt;/strong&gt; (Executing output policy of Nash V-Learning, max player version):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sample $k\setto\text{Unif}([K])$.&lt;/li&gt;
+  &lt;li&gt;For step $h=1,\dots,H$:
+    &lt;ul&gt;
+      &lt;li&gt;Observe $s_h$, and set $t\setto N_h^k(s_h)$.&lt;/li&gt;
+      &lt;li&gt;Set $k\setto k_h^i(s_h)$, where $k_h^1(s_h)&amp;lt;\dots&amp;lt;k_h^t(s_h)$ are the indices of all past visitations to $(h, s_h)$ prior to episode $k$, and $i\in [t]$ is sampled randomly with probability $\alpha_t^i$.&lt;/li&gt;
+      &lt;li&gt;Take action $a_{1,h}\sim \pi_{1,h}^k(\cdot\vert s_h)$.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The structure of the Nash V-Learning algorithm is rather distinct from either Nash-VI or Q-learning (perhaps its closest relative among classical RL algorithms). We briefly explain its three main components:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Incremental update of $\up{V}$&lt;/strong&gt;: This part is similar to Q-learning, except that we do not model the Q functions, but rather directly model the V functions (hence the name V-learning). Consequently, this update seemingly “ignores” the information in both the action $a_{h,1}$ taken by the max player herself and the action $a_{h,2}$ taken by the opponent.&lt;br /&gt;
+The incremental update uses a step-size sequence \(\{\alpha_t\}_{t\ge 0}\). We choose \(\alpha_t=(H+1)/(H+t)\) following the analysis of Q-learning in (&lt;a href=&quot;https://arxiv.org/abs/1807.03765&quot;&gt;Jin et al. 2018&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Adversarial bandit subroutine&lt;/strong&gt;: Recall that in Q-learning (or its optimistic version), the greedy (argmax) rule over the estimated Q function is used at each $(s,h)$ to determine the policy. In V-learning, the policy at each $(s_h, h)$ is rather maintained by an &lt;em&gt;adversarial bandit subroutine&lt;/em&gt; (there are $SH$ such adversarial bandits in total).&lt;br /&gt;
+Concretely, after $(s_h, h)$ is encountered and $(r_h, s_{h+1})$ are received, the corresponding adversarial bandit performs an update step of the form “Action $a_{1,h}\in\cA_1$ suffered loss \(\frac{H-r_h-\min\{\up{V}_{h+1}(s_{h+1}), H-h\} }{H}\in [0,1]\).” The adversarial bandit subroutine is then responsible for determining how to actually compute the new policy given this update.&lt;br /&gt;
+In Nash V-Learning, we instantiate the adversarial bandit as a weighted follow-the-regularized-leader algorithm, in order to achieve a per-state &lt;em&gt;weighted regret&lt;/em&gt; guarantee of a certain form, at each $(s, h)$.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Output policy&lt;/strong&gt;: The output policy of Nash V-learning is a &lt;em&gt;nested mixture&lt;/em&gt; policy: A random integer $k$ is updated by random sampling throughout the execution of this policy, and at each $h$ this $k$ determines a particular policy for drawing the action $a_{1,h}$. This makes the policy &lt;em&gt;non-Markov&lt;/em&gt; in general, which is drastically different from Nash-VI as well as most classical algorithms in single-agent RL which outputs Markov policies.&lt;br /&gt;
+Technically, such an output policy is critically required in order to extract from the per-state “regret” guarantees at each $(s,h)$ a policy that enjoys an overall near-Nash guarantee on the overall game value. (Hence its original name “certified policy” in (&lt;a href=&quot;https://arxiv.org/abs/2006.12007&quot;&gt;Bai et al. 2020&lt;/a&gt;) as this policy “certifies” the value functions appearing in the per-state regret bounds.) Here, the sampling probabilities $\alpha_t^i$ are defined as
+[
+\alpha_t^0 = \prod_{j=1}^t (1-\alpha_j),~~~\alpha_t^i = \alpha_i \prod_{j=i+1}^t (1-\alpha_j).
+]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The above techniques lead to the following guarantee on Nash V-Learning.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt; (&lt;a href=&quot;https://arxiv.org/abs/2006.12007&quot;&gt;Bai et al. 2020&lt;/a&gt;): Suppose both players run the Nash V-Learning algorithm with the \(\text{Adv_Bandit_Update}\) instantiated as a suitable weighted Follow-The-Regularized-Leader algorithm for each $(s,h)$. Then, running this for $K$ episodes, (the product of) their certified output policies $(\what{\pi}_1, \what{\pi}_2)$ is an $\epsilon$-Nash as long as $K\ge \tO(H^6S(A_1+A_2)/\eps^2)$.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Compared with optimistic Nash-VI, the pros and cons are intriguing: Nash V-Learning achieves milder dependence on the action space ($A_1+A_2$ vs. $A_1A_2$) thanks to its decentralized nature, at the cost of worse $H$ factors. We remark that the original choice of adversarial bandit hyperparameters in (&lt;a href=&quot;https://arxiv.org/abs/2006.12007&quot;&gt;Bai et al. 2020&lt;/a&gt;) was not the sharpest possible; this was subsequently improved in (&lt;a href=&quot;https://arxiv.org/abs/2010.15020&quot;&gt;Tian et al. 2020&lt;/a&gt;) which gives sample complexity $\tO(H^5S(A_1+A_2)/\eps^2)$, better by a factor of $H$.&lt;/p&gt;
+
+&lt;h4 id=&quot;43-summary-of-algorithms&quot;&gt;4.3 Summary of algorithms&lt;/h4&gt;
+
+&lt;p&gt;The table below summarizes the algorithms we have introduced so far for learning $\eps$-Nash in zero-sum MGs. Note that here Nash Q-Learning (and its optimistic version) was not presented in this blog post; the actual algorithm and theoretical guarantee can be found in Section 3 of (&lt;a href=&quot;https://arxiv.org/abs/2006.12007&quot;&gt;Bai et al. 2020&lt;/a&gt;).&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Algorithm&lt;/td&gt;
+      &lt;td&gt;Training&lt;/td&gt;
+      &lt;td&gt;Update&lt;/td&gt;
+      &lt;td&gt;Main estimand&lt;/td&gt;
+      &lt;td&gt;Sample complexity&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nash-VI&lt;/td&gt;
+      &lt;td&gt;centralized&lt;/td&gt;
+      &lt;td&gt;model-based&lt;/td&gt;
+      &lt;td&gt;\(\P_h(s&apos;\vert s,a_1,a_2)\)&lt;/td&gt;
+      &lt;td&gt;\(\tO(H^3SA_1A_2/\eps^2)\)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nash Q-Learning&lt;/td&gt;
+      &lt;td&gt;centralized&lt;/td&gt;
+      &lt;td&gt;model-free&lt;/td&gt;
+      &lt;td&gt;\(Q_h^{\star, \star}(s,a_1,a_2)\)&lt;/td&gt;
+      &lt;td&gt;\(\tO(H^5SA_1A_2/\eps^2)\)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nash V-Learning&lt;/td&gt;
+      &lt;td&gt;decentralized&lt;/td&gt;
+      &lt;td&gt;model-free&lt;/td&gt;
+      &lt;td&gt;\(V_h^{\star, \star}(s)\)&lt;/td&gt;
+      &lt;td&gt;\(\tO(H^5S(A_1+A_2)/\eps^2)\)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;5-general-sum-mgs-with-many-players&quot;&gt;5. General-sum MGs with many players&lt;/h3&gt;
+
+&lt;p&gt;Only informal definition of CE, CCE and theorems. No algorithm box.&lt;/p&gt;
+
+&lt;h3 id=&quot;6-learning-mgs-with-function-approximation&quot;&gt;6. Learning MGs with function approximation&lt;/h3&gt;
+
+&lt;p&gt;In single-agent MDPs, there is a rich body of work on the theory of function approximation—that is, sample-efficient learning in large state/action spaces equipped with a restricted function class. Here we briefly review some recent advances on function approximation in Markov Games. Throughout this section, we shift back to considering two-player zero-sum MGs.&lt;/p&gt;
+
+&lt;h4 id=&quot;61-linear-function-approximation&quot;&gt;6.1 Linear function approximation&lt;/h4&gt;
+
+&lt;p&gt;Similar as a linear MDP, a (zero-sum) &lt;em&gt;linear MG&lt;/em&gt; is a Markov Game whose transitions and rewards satisfy the following linear structure:&lt;/p&gt;
+&lt;p&gt;
+\[
+\begin{aligned}
+&amp;amp; \P_h(s&apos; | s, a_1, a_2) = \langle \phi(s, a_1, a_2), \mu_h(s&apos;) \rangle, \\
+&amp;amp; r_h(s, a_1, a_2) = \langle \phi(s, a_1, a_2), \theta_h \rangle,
+\end{aligned}
+\]
+&lt;/p&gt;
+&lt;p&gt;where $\phi:\cS\times \cA_1\times \cA_2\to \R^d$ is a known feature map and $\mu_h$, $\theta_h$ are (unknown) parameters for the transitions and rewards.&lt;/p&gt;
+
+&lt;p&gt;The following result shows that linear MGs can be learned sample-efficiently with mild polynomial dependencies on $d,H$, similar as in linear MDPs. Their algorithm builds upon least-squares value iteration as well as the matrix CCE subroutine.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt; (&lt;a href=&quot;https://arxiv.org/abs/2002.07066&quot;&gt;Xie et al. 2020&lt;/a&gt;): A linear zero-sum MG with horizon length $H$ and feature dimension $d$ can be learned sample-efficiently with \(\tO(\sqrt{d^3H^4K})\) regret with $K$ episodes of play, or \(\tO(d^3H^4/\eps^2)\) episode complexity for finding an \(\eps\)-Nash.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We remark that &lt;a href=&quot;https://arxiv.org/abs/2102.07404&quot;&gt;Chen et al. 2021&lt;/a&gt; considers the related model of linear mixture MGs and proved a regret bound of \(\tO(\sqrt{d^2H^3K})\).&lt;/p&gt;
+
+&lt;h4 id=&quot;62-general-function-approximation&quot;&gt;6.2 General function approximation&lt;/h4&gt;
+
+&lt;p&gt;A few recent works tackle the problem when the function class does not admit a linear structure. The following result shows that sample-efficient learning is possible if the function class has a low Bellman Eluder (BE) dimension, where the definition of BE dimension is a suitable adaptation from its single-agent version (&lt;a href=&quot;https://arxiv.org/abs/2102.00815&quot;&gt;Jin et al. 2021a&lt;/a&gt;).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt; (&lt;a href=&quot;https://arxiv.org/abs/2106.03352&quot;&gt;Jin et al. 2021b&lt;/a&gt;): For any zero-sum MG with horizon length $H$ equipped with a Q-function class $\cF$ whose Bellman Eluder dimension is \(\tO(d)\), there exists an algorithm Golf_with_Exploiter that learns an $\eps$-Nash within \(\tO(H^2d/\eps^2)\) episodes of play.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The concurrent work of &lt;a href=&quot;https://arxiv.org/abs/2107.14702&quot;&gt;Huang et al. 2021&lt;/a&gt; also establishes a \(\tO(1/\eps^2)\) sample complexity guarantee for zero-sum MG with general function approximation, under the slightly different complexity measure of minimax Eluder dimension.&lt;/p&gt;
+
+&lt;h3 id=&quot;7-other-recent-works-and-research-frontiers&quot;&gt;7. Other recent works and research frontiers&lt;/h3&gt;</content><author><name>Yu Bai, Chi Jin</name></author><summary type="html">\(\def\cS{\mathcal S}\) \(\def\cA{\mathcal A}\) \(\def\cF{\mathcal F}\) \(\def\mc{\mathcal}\) \(\def\P{\mathbb P}\) \(\def\E{\mathbb E}\) \(\def\V{\mathbb V}\) \(\def\R{\mathbb R}\) \(\def\tO{\widetilde{\mathcal{O}}}\) \(\def\eps{\varepsilon}\) \(\def\epsilon{\varepsilon}\) \(\def\setto{\leftarrow}\) \(\def\up{\overline}\) \(\def\low{\underline}\) \(\def\what{\widehat}\) Reinforcement learning (RL) has made substantial empirical progresses in solving hard AI challenges in the past few years. A big portion of these progresses—Go, Dota 2, Starcraft, economic simulation, social behavior learning, and so on—come from multi-agent RL, that is, sequential decision making involving more than one agents. While the theoretical study of (single-agent) RL has a long history and a vastly growing recent interest, multi-agent RL theory is arugably a newer and less developed field, with its own unique challenges and opportunities that we feel very excited about. In this extended blog post, we present a brief overview of the basics of multi-agent RL theory, along with some recent theoretical developments in the past few years. We will cover the basic formulations, learning goals, planning algorithms, as well as recent advances in sample-efficient learning algorithms under the interactive (exploration) setting which will be our main focus. As a disclaimer, for clarity of presentation, our coverage of relevant research works will be necessarily selective; however, BLAH. The majority of this blog will assume familiarity with the basics of RL theory with a single agent (for example, materials in this fantastic book). We will focus on “what is different” when it comes to multi-agent, and discuss the various recent developments and opportunities therein. 1. Formulation: Markov Games There are various formulations for multi-agent RL. In this blog post, we will focus on Markov Games (MG; Shapley 1953, Littman 1994), a generalization of the widely-used Markov Decision Process (MDP) framework into the case of multiple agents. We remark that there exists various other frameworks for modeling multi-agent sequential decision making, such as extensive-form games which are more often used for modeling imperfect information (e.g. Poker). Roughly speaking, a Markov Game has the same (state, action) -&amp;gt; (reward, next state) structure as in an MDP, except that now “action” is replaced by the joint actions of all players, and “reward” is replaced by a collection of reward functions so that each player has her own reward. In words: Markov Games with m players: (state, m actions) -&amp;gt; (m rewards, next state). Formally, we consider a multi-player general-sum Markov game with $m$ players, which can be described as a tuple \(\text{MG}(H, \mathcal{S}, \{\mathcal{A}_{i}\}_{i=1}^{m}, \mathbb{P},\{r_{i}\}_{i=1}^{m})\), where $H$ is the horizon length, $\mathcal{S}$ is the state space with $\vert \mathcal{S}\vert=S$. \(\mathcal{A}_i\) is the action space for the $i$-th player with \(\vert\mathcal{A}_i\vert=A_i\). All players act simultaneously; we use \(\boldsymbol{a}=(a_1,\dots,a_m)\in \prod_{i=1}^m \mathcal{A}_i\) to denote a joint action, \(\mathbb{P}=\{\mathbb{P}_h\}\) is the collection of transition probabilities, where \(\mathbb{P}_h(s_{h+1} \vert s_h, \boldsymbol{a}_h)\) is the probability of transiting to the next state \(s_{h+1}\), given state-action pair $(s_h, \boldsymbol{a}_h)$ at step $h$, \(r_i\) is the reward function for the \(i\)-th player. At step $h$, the $i$-th player will experience reward $r_{i,h}(s_h, \boldsymbol{a}_h)\in[0, 1]$. For simplicity of presentation, we assume the reward is deterministic. A trajectory of an MG looks like this: [ s_1, (a_{1, 1}, \dots, a_{1, m}), (r_{1,1},\dots, r_{1,m}), s_2, \dots, s_H, (a_{H, 1}, \dots, a_{H, m}), (r_{H,1}, \dots, r_{H, m}). ] Finally, a (Markov) policy for the $i$-th player is denoted by \(\pi_i=\{\pi_{h,i}\}_{h=1}^H\), where \(\pi_{h,i}(a_{h,i}\vert s_h)\) is the probability of taking action $a_{h,i}$ at step $h$ and state $s_h$. We use \(V_{h,i}^{\pi}(s_h)\) and $Q_{h,i}^{\pi}(s_h, \boldsymbol{a}_h)$ to denote the value and Q-value functions for player $i$ at step $h$, when joint policy \(\pi=(\pi_1,\dots,\pi_m)\) is used. These notations are all parallel to single-agent MDPs. We assume the initial state $s_1$ is deterministic, so that \(V_{1,i}^{\pi} := V_{1,i}^\pi(s_1)\) is the overall return for the $i$-th player. 1.1 Special case: Zero-sum games An important special case of Markov games is zero-sum (competitive) MGs: A zero-sum Markov Game is a Markov Game with $m=2$, and $r_1\equiv -r_2$. As each player wishes to maximize her own reward, in a zero-sum MG, the two players are in a purely competitive relationship. We thus define the overall value in a zero-sum MG to be player 1’s value function: $V_h:=V_{h,1}$. We call player 1 the max player and player 2 the min player. Zero-sum MGs model a number of real-world two-player strategic games, such as Go, Chess, Shogi, etc. From a mathematical perspective, zero-sum MGs is perhaps the most immediate extension of a single-agent MDP—solving it can be thought of as a certain min-max optimization, akin to how solving a single-agent MDP is a certain maximization problem. 2. Nash equilibrium In an MDP, the learning goal for an agent is to maximize her own cumulative reward. In an MG, this is still the learning goal for each individual agent, but we have to additionally decide on some notion of equilibrium to combine these individual optimality conditions. Throughout the majority of this blog post, we consider the celebrated notion of Nash equilibrium (Nash 1951), which states that for each player $i$, fixing all other player’s policies, her own policy is a best response (i.e. maximizes her own cumulative reward): Nash equilibrium: Each player plays the best response to all other player’s policies. It is clear that the Nash equilibrium strictly generalizes the notion of an optimal policy for MDPs—An MG reduces to an MDP if player 1 acts and all other players are dummy. In this case, the best response of player 1 reduces to maximizing her own reward with respect to the environment (MDP) only. Formally, we define an $\eps$-approximate Nash equilibrium as follows: Definition: A product policy $\pi=(\pi_1,\dots, \pi_m)$ is an $\eps$-approximate Nash equilibrium, if we have [ \max_{i\in[m]} \big( \max_{\pi_i’} V_{1,i}^ {\pi_i’, \pi_{-i}}- V_{1,i}^{\pi_i, \pi_{-i}} \big) \le \eps. ] We say $\pi$ is an (exact) Nash equilibrium if the above holds with $\eps=0$. The Nash equilibrium need not be unique for (general-sum) MGs. Also, note that by definition any Nash policy must be a product policy (i.e. all the players execute their own policy independently). There exist other proper notions of equilibria when players do play in a correlated fashion; we will dive deeper into this in Section 5. 2.1 Nash equilibrium in zero-sum games The Nash equilibrium enjoys additional nice properties in zero-sum MGs. Recall that $V_1^{\pi_1, \pi_2}$ denotes player 1’s value for which $\pi_1$ seeks to maximize and $\pi_2$ seeks to minimize. Proposition: For any zero-sum MG, we have (Unique Nash value) There exists some $V_1^{\star, \star}\in[0,H]$ such that any Nash equilibrium $(\pi_1^\star, \pi_2^\star)$ achieves this same value: [ V_1^{\pi_1^\star, \pi_2^\star} = V_1^{\star, \star}, ] even though the Nash policy $(\pi_1^\star, \pi_2^\star)$ may not be unique. (Strong duality) Any Nash equilibrium is also a min-max solution and a max-min solution. In other words, the following two inequalities (which holds for any pair of $(\pi_1, \pi_2)$) \[ \left\{ \begin{aligned} &amp;amp; \max_{\pi_1&apos;} V_1^{\pi_1&apos;, \pi_2} \ge \min_{\pi_2&apos;} \max_{\pi_1&apos;} V_1^{\pi_1&apos;, \pi_2&apos;} \ge \max_{\pi_1&apos;} \min_{\pi_2&apos;} V_1^{\pi_1&apos;, \pi_2&apos;} \ge \min_{\pi_2&apos;} V_1^{\pi_1, \pi_2&apos;} \\ &amp;amp; \max_{\pi_1&apos;} V_1^{\pi_1&apos;, \pi_2} \ge V_1^{\pi_1, \pi_2} \ge \min_{\pi_2&apos;} V_1^{\pi_1, \pi_2&apos;} \end{aligned} \right. \] become equalities ($=V_1^{\star, \star}$) if $(\pi_1, \pi_2)$ is a Nash equilibrium. These nice properties make zero-sum MGs an appealing setting for learning Nash, which will be the focus of our next two sections. 3. Nash Planning algorithms in zero-sum MGs Given the above setup, a natural first question is: How do we compute the Nash equilibrium in zero-sum MGs assuming known transitions and rewards? In other words, what is a good Nash planning algorithm? It turns out that a direct multi-agent adaptaion of Value Iteration, dating back to (Shapley 1953), gives an algorithm for computing Nash for a known game. We term this algorithm as Nash-VI (Nash Value Iteration). Similar as how Value Iteration computes the optimal values and policies for an MDP using backward dynamical programming, Nash-VI performs similar backward updates on an MG, except that the policy selection mechanism is adapted: The greedy policy selection over the vector $Q^\star(s, \cdot)$ within VI is now replaced by a \(\text{MatrixNash}\) subroutine over the matrix $Q^{\star, \star}(s, \cdot, \cdot)$. This makes sense given that the learning goal is now learning a Nash equilibrium policy over the two players jointly, instead of the reward maximizing policy for a single player. In words, Nash-VI = Value Iteration with \(\text{Greedy}(\cdot)\) replaced by \(\text{MatrixNash}(\cdot)\). Algorithm (Nash-VI): Initialize \(V_{H+1}(s)\equiv 0\) for all \(s\in\cS\). For $h=H,\dots,1$, compute the following over $s\in\cS$ and all $(a_1, a_2)\in\cA_1\times \cA_2$: \[ \begin{aligned} &amp;amp; Q_h^{\star, \star}(s, a_1, a_2) = r_h(s, a_1, a_2) + (\P_h V_{h+1})(s, a_1, a_2), \\\ &amp;amp; (\pi_{1,h}^\star(\cdot\vert s), \pi_{2,h}^\star(\cdot\vert s)) = \text{MatrixNash}(Q_h^{\star, \star}(s,\cdot,\cdot)), \\\ &amp;amp; V^{\star, \star}_h(s) = \pi_{1,h}^\star(\cdot \vert s)^\top Q_h(s,\cdot,\cdot) \pi_{2,h}^\star(\cdot \vert s). \end{aligned} \] Return policies $(\pi_1^\star, \pi_2^\star)$ where \(\pi_i^\star=\{\pi_{i,h}^\star(\cdot\vert s)\}_{(h,s)\in[H]\times \cS}\). Above, the \(\text{MatrixNash}\) subroutine for any matrix \(M\in \R^{A_1\times A_2}\) is defined as \[ \begin{align}\label{equation:matrixnash} \text{MatrixNash}(M) := \arg \big( \max_{\pi_1 \in \Delta_{\cA_1}} \min_{\pi_2 \in \Delta_{\cA_2}} \pi_1^\top M \pi_2 \big), \end{align} \] which can be implemented efficiently using linear programming. Using backward induction over $h$, it is straightforward to show that the policies $(\pi_1^\star, \pi_2^\star)$ returned by Nash-VI is indeed a Nash equilibrium of the desired MG. Value Iteration is not the only algorithm for computing Nash. As an alternative, the Nash Q-Learning algorithm (Hu &amp;amp; Wellman 2003) performs incremental updates on the Q values, and uses the same matrix Nash subroutine to compute (Nash) V values from the Q values. Further, both Nash-VI and Nash Q-learning can be adapted when the game transitions and rewards are not known and have to be estimated from samples. For example, using random samples from a simulator (can query any $(s_h, a_{h,1}, a_{h,2})$ and obtain a sample of $(r_h, s_{h+1})$), an $\eps$-Nash can be learned with $\tO(H^3SA_1A_2/\eps^2)$ samples with high probability, using variants of either Nash Q-learning (Sidford et al. 2019) or Nash-VI (Zhang et al. 2020). Centralization. Finally, we remark that both Nash-VI and Nash Q-learning are centralized algorithms—that is, the computation for the two players are coupled (due to the joint computation in the matrix Nash subroutine). In order to execute these algorithms, the two players could not act in isolation, and have to coordinate or even live in a same centralized machine (self-play). In Section 4.2, we will present another decentralized algorithm, whose advantage will be best illustrated in the more challenging setting of interactive learning (exploration setting). 4. Sample-efficient learning of Nash in zero-sum MGs We now move on to the more challenging setting of learning Nash from interactive learning environments. Rather than assuming full knowledge or simulators of the game, we now assume that the algorithm can only learn about the game by playing repeated episodes of the game in a trial-and-error fashion (also known as the interactive/exploration setting). Our goal is to design algorithms that are sample-efficient, i.e. can learn an approximate Nash with as few episodes of play as possible. 4.1 Optimistic Nash-VI Our first algorithm is an optimistic variant of the Nash-VI algorithm we have seen in Section 3. This algorithm first appeared in (Liu et al. 2020), and builds on earlier sample-efficient Nash-VI type algorithms within (Bai &amp;amp; Jin 2020, Xie et al. 2020). Algorithm (Optimistic Nash-VI, sketch): Initialize \(\up{Q}_h(s, a_1, a_2)\setto H\) and \(\low{Q}_h(s, a_1, a_2)\setto 0\) for all \((s, a_1, a_2, h)\). For episode $k=1,\dots,K$: For step $h=H,\dots,1$: For all $(s, a_1, a_2)\in\cS\times \cA_1\times \cA_2$: Set $t\setto N_h(s, a_1, a_2)$ (visitation count). If $t&amp;gt;0$ then Compute bonus \(\beta\setto \text{BernsteinBonus}(t, \what{\V}_h[(\up{V}_{h+1} + \low{V}_{h+1})/2] (s, a_1, a_2)\). Compute additional bonus \(\gamma\setto (c/H) \what{\P}_h(\up{V}_{h+1} - \low{V}_{h+1})(s, a_1, a_2)\). \(\up{Q}_h(s, a_1, a_2)\setto \min\{ (r_h + \what{P}_h\up{V}_{h+1})(s, a_1, a_2) + \beta + \gamma, H \}\). \(\low{Q}_h(s, a_1, a_2)\setto \max\{ (r_h + \what{P}_h\low{V}_{h+1})(s, a_1, a_2) - \beta - \gamma, 0 \}\). For all $s\in \cS$: \(\pi_h(\cdot, \cdot \vert s) \setto \text{MatrixCCE}(\up{Q}_h(s, \cdot, \cdot), \low{Q}_h(s, \cdot, \cdot))\). \(\up{V}_h(s) \setto \langle \pi_h(\cdot, \cdot \vert s), \up{Q}_h(s, \cdot, \cdot) \rangle\). \(\low{V}_h(s) \setto \langle \pi_h(\cdot, \cdot \vert s), \low{Q}_h(s, \cdot, \cdot) \rangle\). Play an episode using (correlated) policy $\pi$, and update the empirical models $\what{\P}_h$, $N_h$. Set $(\pi_1^k, \pi_2^k)$ to be the marginal policy of the current policy $\pi$. Main techniques. Optimistic Nash-VI enhances the original Nash-VI in two main aspects in order to perform sample-efficient exploration in an interactive learning setting: The algorithm maintains two optimistic Q estimates: An upper estimate $\up{Q}_h$, and a lower estimate $\low{Q}_h$. The amount of optimisticity is governed by the two bonus functions $\beta$ and $\gamma$, where $\beta$ is similar to the usual Bernstein bonus for exploration in single-agent settings (Azar et al. 2017, Jin et al. 2018), and $\gamma$ is a specifically designed model-based bonus that allows a tighter analysis, akin to the one used in (Dann et al. 2018). The policy is now computed using a matrix CCE subroutine. For any pair of matrices $\up{M}, \low{M}\in\R^{A_1\times A_2}$, $ \text{MatrixCCE}(\up{M}, \low{M})$ is defined as any correlated policy $\pi \in \Delta_{\cA_1\times \cA_2}$ such that the following holds: \[ \begin{aligned} &amp;amp; \E_{(a_1, a_2)\sim \pi} [\up{M}(a_1, a_2)] \ge \max_{a_1&apos;\in \cA_1} \E_{(a_1, a_2)\sim \pi}[\up{M}(a_1&apos;, a_2)], \\ &amp;amp; \E_{(a_1, a_2)\sim \pi} [\low{M}(a_1, a_2)] \le \min_{a_2&apos;\in \cA_2} \E_{(a_1, a_2)\sim \pi}[\low{M}(a_1, a_2&apos;)]. \end{aligned} \] In other words, if the two players jointly play $\pi$, the max player has no gain in deviating for the payoff matrix $\up{M}$, and the min player has no gain in deviating for the payoff matrix $\low{M}$. The purpose of this matrix CCE subroutine is to find a good policy with respect to the upper / lower estimates in a computationally efficient fashion (this subroutine can be implemented using linear programming). Indeed, here a general-sum matrix Nash subroutine with respect to $(\up{Q}_h(s,\cdot,\cdot), \low{Q}_h(s,\cdot,\cdot))$ may as well be used (and leads to the same sample complexity results), yet would suffer from computational difficulties for large $A_1,A_2$, as finding Nash in a two-player general-sum matrix game is PPAD hard (Daskalakis et al. 2013). These techniques enable the optimistic Nash-VI algorithm to achieve the following sample complexity guarantee for learning Nash in zero-sum MGs. Theorem (Liu et al. 2020): With high probability, optimistic Nash-VI achieves $\tO(\sqrt{H^3SA_1A_2K})$ regret, and outputs an $\eps$-Nash within $K=\tO(H^3SA_1A_2/\eps^2)$ episodes of play. define regret? Centralized training, decentralized execution. Note that the $\pi$ returned by the matrix CCE subroutines and used in the exploration step is a correlated policy. Therefore, the entire algorithm has to be executed in a centralized fashion. However, the final output is the marginals of this correlated policy and thus is an (approximately Nash) product policy that can be deployed in a decentralized way. This is reminiscent of the “centralized training, decentralized execution” paradigm which is also commonly used in empirical multi-agent RL. 4.2 Nash V-Learning Our second algorithm is a recently proposed algorithm, Nash V-Learning, which first appeared in (Bai et al. 2020). Nash V-Learning is a decentralized algorithm: Each player can run it entirely on her own as long as she observes the states, rewards, and next states (as if it were a single-agent MDP). The opponent’s action does not need to be observed. We present the max player version of Nash V-Learning as follows (the min player version is symmetric). Algorithm (Nash V-Learning, max player version): For all $(h, s, a_1)\in [H]\times \cS\times \cA_1$, initialize \(\up{V}_h(s)\setto H-h+1\), \(\pi_{1,h}(a_1 \vert s)\setto 1/A_1\), and $N_h(s)\setto 0$. For episode $k=1,\dots,K$: Receive $s_1$. For $h=1,\dots,H$: Take action $a_{1,h}\sim \pi_{1,h}(\cdot \vert s_h)$, observe reward $r_h$ and next state $s_{h+1}$. (No need to observe opponent’s action.) $t=N_h(s_h)\setto N_h(s_h)+1$. \(\up{V}_{h}(s_h)\setto (1-\alpha_t) \up{V}_h(s_h) + \alpha_t (r_h + \min\{\up{V}_{h+1}(s_{h+1}), H-h\} + \beta_t)\). \(\pi_{1,h}(\cdot \vert s_h) \setto \text{Adv_Bandit_Update}(a_{1,h}, \frac{H-r_h-\min\{\up{V}_{h+1}(s_{h+1}), H-h\} }{H})\) on the $(s_h, h)$-th adversarial bandit. Algorithm (Executing output policy of Nash V-Learning, max player version): Sample $k\setto\text{Unif}([K])$. For step $h=1,\dots,H$: Observe $s_h$, and set $t\setto N_h^k(s_h)$. Set $k\setto k_h^i(s_h)$, where $k_h^1(s_h)&amp;lt;\dots&amp;lt;k_h^t(s_h)$ are the indices of all past visitations to $(h, s_h)$ prior to episode $k$, and $i\in [t]$ is sampled randomly with probability $\alpha_t^i$. Take action $a_{1,h}\sim \pi_{1,h}^k(\cdot\vert s_h)$. The structure of the Nash V-Learning algorithm is rather distinct from either Nash-VI or Q-learning (perhaps its closest relative among classical RL algorithms). We briefly explain its three main components: Incremental update of $\up{V}$: This part is similar to Q-learning, except that we do not model the Q functions, but rather directly model the V functions (hence the name V-learning). Consequently, this update seemingly “ignores” the information in both the action $a_{h,1}$ taken by the max player herself and the action $a_{h,2}$ taken by the opponent. The incremental update uses a step-size sequence \(\{\alpha_t\}_{t\ge 0}\). We choose \(\alpha_t=(H+1)/(H+t)\) following the analysis of Q-learning in (Jin et al. 2018). Adversarial bandit subroutine: Recall that in Q-learning (or its optimistic version), the greedy (argmax) rule over the estimated Q function is used at each $(s,h)$ to determine the policy. In V-learning, the policy at each $(s_h, h)$ is rather maintained by an adversarial bandit subroutine (there are $SH$ such adversarial bandits in total). Concretely, after $(s_h, h)$ is encountered and $(r_h, s_{h+1})$ are received, the corresponding adversarial bandit performs an update step of the form “Action $a_{1,h}\in\cA_1$ suffered loss \(\frac{H-r_h-\min\{\up{V}_{h+1}(s_{h+1}), H-h\} }{H}\in [0,1]\).” The adversarial bandit subroutine is then responsible for determining how to actually compute the new policy given this update. In Nash V-Learning, we instantiate the adversarial bandit as a weighted follow-the-regularized-leader algorithm, in order to achieve a per-state weighted regret guarantee of a certain form, at each $(s, h)$. Output policy: The output policy of Nash V-learning is a nested mixture policy: A random integer $k$ is updated by random sampling throughout the execution of this policy, and at each $h$ this $k$ determines a particular policy for drawing the action $a_{1,h}$. This makes the policy non-Markov in general, which is drastically different from Nash-VI as well as most classical algorithms in single-agent RL which outputs Markov policies. Technically, such an output policy is critically required in order to extract from the per-state “regret” guarantees at each $(s,h)$ a policy that enjoys an overall near-Nash guarantee on the overall game value. (Hence its original name “certified policy” in (Bai et al. 2020) as this policy “certifies” the value functions appearing in the per-state regret bounds.) Here, the sampling probabilities $\alpha_t^i$ are defined as [ \alpha_t^0 = \prod_{j=1}^t (1-\alpha_j),~~~\alpha_t^i = \alpha_i \prod_{j=i+1}^t (1-\alpha_j). ] The above techniques lead to the following guarantee on Nash V-Learning. Theorem (Bai et al. 2020): Suppose both players run the Nash V-Learning algorithm with the \(\text{Adv_Bandit_Update}\) instantiated as a suitable weighted Follow-The-Regularized-Leader algorithm for each $(s,h)$. Then, running this for $K$ episodes, (the product of) their certified output policies $(\what{\pi}_1, \what{\pi}_2)$ is an $\epsilon$-Nash as long as $K\ge \tO(H^6S(A_1+A_2)/\eps^2)$. Compared with optimistic Nash-VI, the pros and cons are intriguing: Nash V-Learning achieves milder dependence on the action space ($A_1+A_2$ vs. $A_1A_2$) thanks to its decentralized nature, at the cost of worse $H$ factors. We remark that the original choice of adversarial bandit hyperparameters in (Bai et al. 2020) was not the sharpest possible; this was subsequently improved in (Tian et al. 2020) which gives sample complexity $\tO(H^5S(A_1+A_2)/\eps^2)$, better by a factor of $H$. 4.3 Summary of algorithms The table below summarizes the algorithms we have introduced so far for learning $\eps$-Nash in zero-sum MGs. Note that here Nash Q-Learning (and its optimistic version) was not presented in this blog post; the actual algorithm and theoretical guarantee can be found in Section 3 of (Bai et al. 2020). Algorithm Training Update Main estimand Sample complexity Nash-VI centralized model-based \(\P_h(s&apos;\vert s,a_1,a_2)\) \(\tO(H^3SA_1A_2/\eps^2)\) Nash Q-Learning centralized model-free \(Q_h^{\star, \star}(s,a_1,a_2)\) \(\tO(H^5SA_1A_2/\eps^2)\) Nash V-Learning decentralized model-free \(V_h^{\star, \star}(s)\) \(\tO(H^5S(A_1+A_2)/\eps^2)\) 5. General-sum MGs with many players Only informal definition of CE, CCE and theorems. No algorithm box. 6. Learning MGs with function approximation In single-agent MDPs, there is a rich body of work on the theory of function approximation—that is, sample-efficient learning in large state/action spaces equipped with a restricted function class. Here we briefly review some recent advances on function approximation in Markov Games. Throughout this section, we shift back to considering two-player zero-sum MGs. 6.1 Linear function approximation Similar as a linear MDP, a (zero-sum) linear MG is a Markov Game whose transitions and rewards satisfy the following linear structure: \[ \begin{aligned} &amp;amp; \P_h(s&apos; | s, a_1, a_2) = \langle \phi(s, a_1, a_2), \mu_h(s&apos;) \rangle, \\ &amp;amp; r_h(s, a_1, a_2) = \langle \phi(s, a_1, a_2), \theta_h \rangle, \end{aligned} \] where $\phi:\cS\times \cA_1\times \cA_2\to \R^d$ is a known feature map and $\mu_h$, $\theta_h$ are (unknown) parameters for the transitions and rewards. The following result shows that linear MGs can be learned sample-efficiently with mild polynomial dependencies on $d,H$, similar as in linear MDPs. Their algorithm builds upon least-squares value iteration as well as the matrix CCE subroutine. Theorem (Xie et al. 2020): A linear zero-sum MG with horizon length $H$ and feature dimension $d$ can be learned sample-efficiently with \(\tO(\sqrt{d^3H^4K})\) regret with $K$ episodes of play, or \(\tO(d^3H^4/\eps^2)\) episode complexity for finding an \(\eps\)-Nash. We remark that Chen et al. 2021 considers the related model of linear mixture MGs and proved a regret bound of \(\tO(\sqrt{d^2H^3K})\). 6.2 General function approximation A few recent works tackle the problem when the function class does not admit a linear structure. The following result shows that sample-efficient learning is possible if the function class has a low Bellman Eluder (BE) dimension, where the definition of BE dimension is a suitable adaptation from its single-agent version (Jin et al. 2021a). Theorem (Jin et al. 2021b): For any zero-sum MG with horizon length $H$ equipped with a Q-function class $\cF$ whose Bellman Eluder dimension is \(\tO(d)\), there exists an algorithm Golf_with_Exploiter that learns an $\eps$-Nash within \(\tO(H^2d/\eps^2)\) episodes of play. The concurrent work of Huang et al. 2021 also establishes a \(\tO(1/\eps^2)\) sample complexity guarantee for zero-sum MG with general function approximation, under the slightly different complexity measure of minimax Eluder dimension. 7. Other recent works and research frontiers</summary></entry></feed>
