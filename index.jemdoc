@@ -24,7 +24,7 @@ My research interest lies broadly in machine learning. My recent focus is on the
 
 - \[Mar 2021\] New [https://blog.einstein.ai/beyond-ntk/ blog] [http://www.offconvex.org/2021/03/25/beyondNTK/ post] on our "Beyond NTK" line of work. We explore how to escape the "NTK ball" around the initialization, and why that can bring provable learning benefits to neural networks for learning certain functions.
 
-- \[Sep 2020\] Two papers accepted by NeurIPS 2020. Topics include  [https://arxiv.org/abs/2006.13436 new understandings of hierarchical learning in neural networks], and [https://arxiv.org/abs/2007.03760 near-optimal self-play algorithms for learning zero-sum Markov games].
+- \[Sep 2020\] Two papers accepted by NeurIPS 2020. Topics include  [https://arxiv.org/abs/2006.13436 new understandings of hierarchical learning in neural networks], and [https://arxiv.org/abs/2006.12007 near-optimal self-play algorithms for learning zero-sum Markov games].
 
 - \[May 2020\] Our [https://arxiv.org/abs/2002.04017 paper] on self-play
   is accepted by ICML 2020. We present the first line of provable
@@ -53,12 +53,16 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   Michael Curry, Alexander Trott, Soham Phade, Yu Bai, Stephan Zheng. \n
   Preprint, 2022. \n
 
-- [https://arxiv.org/abs/2110.04184 When Can We Learn General-Sum Markov Games with a Large Number of Players Sample-Efficiently?] \n
-  Ziang Song, Song Mei, Yu Bai. \n
-  Preprint, 2021. \n
-
 * Publications *
 
+- [https://arxiv.org/abs/2110.04184 When Can We Learn General-Sum Markov Games with a Large Number of Players Sample-Efficiently?] \n
+  Ziang Song, Song Mei, Yu Bai. \n
+  ICLR 2022.
+
+- [https://openreview.net/forum?id=Ht85_jyihxp Efficient and Differentiable Conformal Prediction with General Function Classes.] \n
+  Yu Bai, Song Mei, Huan Wang, Yingbo Zhou, Caiming Xiong. \n
+  ICLR 2022.
+  
 - [https://arxiv.org/abs/2106.05515 Understanding the Under-Coverage Bias in Uncertainty Estimation.] \n
   Yu Bai, Song Mei, Huan Wang, Caiming Xiong. \n
   NeurIPS 2021 (spotlight presentation). \n
