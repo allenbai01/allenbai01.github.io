@@ -4,15 +4,23 @@
 ~~~
 {}{img_left}{yub.png}{Yu Bai}{240}{320}{}
 
-*About me*: I am a Senior Research Scientist at [https://einstein.ai/ Salesforce Research]. Before joining Salesforce Research, I completed my PhD in [https://statistics.stanford.edu/ Statistics] at [http://www.stanford.edu/ Stanford University] (specializing in machine learning), where I was fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi] and was a member of the [http://ml.stanford.edu/ Machine Learning Group]. During my PhD I also spent times at the research labs of Google and Amazon. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
+*About me*: I am a Senior Research Scientist at [https://www.salesforceairesearch.com/ Salesforce AI Research]. Before joining Salesforce, I completed my PhD in [https://statistics.stanford.edu/ Statistics] at [http://www.stanford.edu/ Stanford University] (specializing in machine learning), where I was fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi] and was a member of the [http://ml.stanford.edu/ Machine Learning Group]. During my PhD I also spent times at the research labs of Google and Amazon. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
 
 # During my PhD, I also spent two summers in research labs in the industry: at [https://research.google.com Google Research] in 2016, and at Amazon AI Palo Alto in 2018.
 
-My research interest lies broadly in machine learning. My recent focus is on the theoretical foundations of deep learning, reinforcement learning, representation learning, and uncertainty quantification.
+My research interest lies broadly in machine learning, with recent focus on
+- Reinforcement learning and games
+- Uncertainty quantification
+- Theoretical foundations of deep learning
+
+# My recent focus is on the theoretical foundations of deep learning, reinforcement learning, representation learning, and uncertainty quantification.
 
 *News*:
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
+
+
+- \[Jan 2022\] Two papers accepted at ICLR 2022, on [https://arxiv.org/abs/2110.04184 sample-efficient RL in multi-agent general-sum Markov games], and [https://arxiv.org/abs/2202.11091 improved conformal prediction with general families of prediction sets].
 
 - \[Nov 2021\] New [https://yubai.org/blog/marl_theory.html blog post] (with Chi Jin) on recent progresses in multi-agent RL theory released!
 
@@ -22,13 +30,11 @@ My research interest lies broadly in machine learning. My recent focus is on the
 
 - \[May 2021\] Four papers accepted at ICML 2021.
 
-- \[Mar 2021\] New [https://blog.einstein.ai/beyond-ntk/ blog] [http://www.offconvex.org/2021/03/25/beyondNTK/ post] on our "Beyond NTK" line of work. We explore how to escape the "NTK ball" around the initialization, and why that can bring provable learning benefits to neural networks for learning certain functions.
+- \[Mar 2021\] New blog post (cross-posted at [https://blog.einstein.ai/beyond-ntk/ Salesforce Research blog] and [http://www.offconvex.org/2021/03/25/beyondNTK/ off the convex path]) on our "Beyond NTK" line of work. We explore how to escape the "NTK ball" around the initialization, and why that can bring provable learning benefits to neural networks for learning certain functions.
 
-- \[Sep 2020\] Two papers accepted by NeurIPS 2020. Topics include  [https://arxiv.org/abs/2006.13436 new understandings of hierarchical learning in neural networks], and [https://arxiv.org/abs/2006.12007 near-optimal self-play algorithms for learning zero-sum Markov games].
+# - \[Sep 2020\] Two papers accepted by NeurIPS 2020. Topics include  [https://arxiv.org/abs/2006.13436 new understandings of hierarchical learning in neural networks], and [https://arxiv.org/abs/2006.12007 near-optimal self-play algorithms for learning zero-sum Markov games].
 
-- \[May 2020\] Our [https://arxiv.org/abs/2002.04017 paper] on self-play
-  is accepted by ICML 2020. We present the first line of provable
-  self-play algorithms for two-player Markov games.
+# - \[May 2020\] Our [https://arxiv.org/abs/2002.04017 paper] on self-play is accepted by ICML 2020. We present the first line of provable self-play algorithms for two-player Markov games.
 
 # - In October 2019, I will be joining [https://einstein.ai/ Salesforce Research] in Palo Alto as a research scientist. 
 
@@ -63,7 +69,7 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   Ziang Song, Song Mei, Yu Bai. \n
   ICLR 2022.
 
-- [https://yubai.org Efficient and Differentiable Conformal Prediction with General Function Classes.] \n
+- [https://arxiv.org/abs/2202.11091 Efficient and Differentiable Conformal Prediction with General Function Classes.] \n
   Yu Bai, Song Mei, Huan Wang, Yingbo Zhou, Caiming Xiong. \n
   ICLR 2022.
   
