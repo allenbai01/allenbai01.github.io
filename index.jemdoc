@@ -54,17 +54,17 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 == Research
 
 * Preprints *
-
-- [http://arxiv.org/abs/2202.01752 Near-Optimal Learning of Extensive-Form Games with Imperfect Information.] \n
-  Yu Bai, Chi Jin, Song Mei, Tiancheng Yu. \n
-  Preprint, 2022. \n
-  Preliminary version selected as /contributed talk/ at ICLR 2022 Workshop on Gamification and Multiagent Solutions.
   
 - [https://arxiv.org/abs/2201.01163 Finding General Equilibria in Many-Agent Economic Simulations Using Deep Reinforcement Learning. ] \n
   Michael Curry, Alexander Trott, Soham Phade, Yu Bai, Stephan Zheng. \n
   Preprint, 2022. \n
 
 * Publications *
+
+- [http://arxiv.org/abs/2202.01752 Near-Optimal Learning of Extensive-Form Games with Imperfect Information.] \n
+  Yu Bai, Chi Jin, Song Mei, Tiancheng Yu. \n
+  ICML 2022.
+  # \n Preliminary version selected as /contributed talk/ at ICLR 2022 Workshop on Gamification and Multiagent Solutions.
 
 - [https://arxiv.org/abs/2110.04184 When Can We Learn General-Sum Markov Games with a Large Number of Players Sample-Efficiently?] \n
   Ziang Song, Song Mei, Yu Bai. \n
