@@ -19,6 +19,9 @@ My research interest lies broadly in machine learning, with recent focus on
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
 
+- \[May 2022\] Excited to be speaking at the [https://sites.google.com/view/rltheoryseminars/home?authuser=0 RL theory seminar] about our [https://arxiv.org/abs/2110.04184 work] on sample-efficient learning of general-sum Markov Games with a large number of players!
+
+- \[May 2022\] Our [http://arxiv.org/abs/2202.01752 paper] on near-optimal learning in extensive-form games is accepted at ICML 2022. We achieve this by two new algorithms (Balanced OMD, Balanced CFR).
 
 - \[Jan 2022\] Two papers accepted at ICLR 2022, on [https://arxiv.org/abs/2110.04184 sample-efficient RL in multi-agent general-sum Markov games], and [https://arxiv.org/abs/2202.11091 improved conformal prediction with general families of prediction sets].
 
@@ -187,6 +190,9 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 
 == Talks
 
+- When Can We Learn General-Sum Markov Games Sample-Efficiently with A Large Number of Players? \n
+  RL Theory Virtual Seminars, May 2022.
+  
 - Near-Optimal Learning of Extensive-Form Games with Imperfect Information. \n
   Learning and Games Program, Simons Institute, April 2022. \n
   CISS Conference, Princeton University, March 2022.
@@ -229,7 +235,7 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   Stanford ML Seminar, Apr 2017, Stanford, CA.
 
 == Service
-- Conference reviewing:  NeurIPS (2018-2021, top 30\% reviewer in 2018), ICLR (2019-2022), ICML (2019-2021), COLT (2019-2020, 2022), AIStats (2020), IEEE-ISIT (2018). \n
+- Conference reviewing:  NeurIPS (2018-2022, top 30\% reviewer in 2018), ICLR (2019-2022), ICML (2019-2021), COLT (2019-2020, 2022), FOCS (2022), AIStats (2020), IEEE-ISIT (2018). \n
 
 - Journal reviewing: TMLR (Transactions of Machine Learning Research), The Annals of Statistics, JASA (Journal of the American Statistical Association), JRSS-B (Journal of the Royal Statistical Society: Series B), JMLR (Journal of Machine Learning Research), IEEE-TSP (Transactions on Signal Processing), SICON (SIAM Journal on
 Control and Optimization).
