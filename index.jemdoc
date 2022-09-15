@@ -19,6 +19,8 @@ My research interest lies broadly in machine learning, with recent focus on
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
 
+- \[Sep 2022\] Four papers accepted at NeurIPS 2022.
+
 - \[May 2022\] Excited to be speaking at the [https://sites.google.com/view/rltheoryseminars/home?authuser=0 RL theory seminar] about our [https://arxiv.org/abs/2110.04184 work] on sample-efficient learning of general-sum Markov Games with a large number of players!
 
 - \[May 2022\] Our [http://arxiv.org/abs/2202.01752 paper] on near-optimal learning in extensive-form games is accepted at ICML 2022. We achieve this by two new algorithms (Balanced OMD, Balanced CFR).
@@ -29,9 +31,9 @@ My research interest lies broadly in machine learning, with recent focus on
 
 - \[Oct 2021\] Invited talk at Rutgers University ([https://statistics.rutgers.edu/news-events/seminars statistics department seminar]) on understanding the under-coverage bias in [https://arxiv.org/abs/2106.05515 uncertainty estimation] and [https://arxiv.org/abs/2102.07856 calibration].
 
-- \[Sep 2021\] Four papers accepted at NeurIPS 2021.
+# - \[Sep 2021\] Four papers accepted at NeurIPS 2021.
 
-- \[May 2021\] Four papers accepted at ICML 2021.
+# - \[May 2021\] Four papers accepted at ICML 2021.
 
 - \[Mar 2021\] New blog post (cross-posted at [https://blog.einstein.ai/beyond-ntk/ Salesforce Research blog] and [http://www.offconvex.org/2021/03/25/beyondNTK/ off the convex path]) on our "Beyond NTK" line of work. We explore how to escape the "NTK ball" around the initialization, and why that can bring provable learning benefits to neural networks for learning certain functions.
 
@@ -57,30 +59,29 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 == Research
 
 * Preprints *
-
-
-- [https://arxiv.org/abs/2206.03688 Identifying Good Directions to Escape the NTK Regime and Efficiently Learn Low-Degree Plus Sparse Polynomials.] \n
-  Eshaan Nichani, Yu Bai, Jason D. Lee. \n
-  Preprint, 2022.
-
-- [https://arxiv.org/abs/2206.02640 Policy Optimization for Markov Games: Unified Framework and Faster Convergence.] \n
-  Runyu Zhang, Qinghua Liu, Huan Wang, Caiming Xiong, Na Li, Yu Bai. \n
-  Preprint, 2022.
-  
-- [http://arxiv.org/abs/2205.15294 Efficient Φ-Regret Minimization in Extensive-Form Games via Online Mirror Descent.] \n
-  Yu Bai, Chi Jin, Song Mei, Ziang Song, Tiancheng Yu. \n
-  Preprint, 2022.
-
-- [https://arxiv.org/abs/2205.07223 Sample-Efficient Learning of Correlated Equilibria in Extensive-Form Games.] \n
-  Ziang Song, Song Mei, Yu Bai. \n
-  Preprint, 2022.
   
 - [https://arxiv.org/abs/2201.01163 Finding General Equilibria in Many-Agent Economic Simulations Using Deep Reinforcement Learning. ] \n
   Michael Curry, Alexander Trott, Soham Phade, Yu Bai, Stephan Zheng. \n
-  Preprint, 2022.
+  Preprint.
 
 * Publications *
 
+- [https://arxiv.org/abs/2206.02640 Policy Optimization for Markov Games: Unified Framework and Faster Convergence.] \n
+  Runyu Zhang, Qinghua Liu, Huan Wang, Caiming Xiong, Na Li, Yu Bai. \n
+  NeurIPS 2022.
+
+- [https://arxiv.org/abs/2206.03688 Identifying Good Directions to Escape the NTK Regime and Efficiently Learn Low-Degree Plus Sparse Polynomials.] \n
+  Eshaan Nichani, Yu Bai, Jason D. Lee. \n
+  NeurIPS 2022.
+  
+- [http://arxiv.org/abs/2205.15294 Efficient Φ-Regret Minimization in Extensive-Form Games via Online Mirror Descent.] \n
+  Yu Bai, Chi Jin, Song Mei, Ziang Song, Tiancheng Yu. \n
+  NeurIPS 2022.
+
+- [https://arxiv.org/abs/2205.07223 Sample-Efficient Learning of Correlated Equilibria in Extensive-Form Games.] \n
+  Ziang Song, Song Mei, Yu Bai. \n
+  NeurIPS 2022.
+  
 - [http://arxiv.org/abs/2202.01752 Near-Optimal Learning of Extensive-Form Games with Imperfect Information.] \n
   Yu Bai, Chi Jin, Song Mei, Tiancheng Yu. \n
   ICML 2022.
