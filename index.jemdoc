@@ -75,7 +75,7 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   Preprint.
 
 * Publications *
-
+  
 - [https://arxiv.org/abs/2206.02640 Policy Optimization for Markov Games: Unified Framework and Faster Convergence.] \n
   Runyu Zhang, Qinghua Liu, Huan Wang, Caiming Xiong, Na Li, Yu Bai. \n
   NeurIPS 2022.
@@ -91,6 +91,14 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 - [https://arxiv.org/abs/2205.07223 Sample-Efficient Learning of Correlated Equilibria in Extensive-Form Games.] \n
   Ziang Song, Song Mei, Yu Bai. \n
   NeurIPS 2022.
+
+- [https://yubai.org Conformal Predictor for Improving Zero-Shot Text Classification Efficiency.] \n
+  Prafulla Kumar Choubey, Yu Bai, Chien-Sheng Wu, Wenhao Liu, Nazneen Rajani. \n
+  EMNLP 2022.
+  
+- [https://arxiv.org/abs/2102.10809 Local Calibration: Metrics and Recalibration.] \n
+  Rachel Luo, Aadyot Bhatnagar, Yu Bai, Shengjia Zhao, Huan Wang, Caiming Xiong, Silvio Savarese, Edward Schmerling, Marco Pavone. \n
+  UAI 2022.
   
 - [http://arxiv.org/abs/2202.01752 Near-Optimal Learning of Extensive-Form Games with Imperfect Information.] \n
   Yu Bai, Chi Jin, Song Mei, Tiancheng Yu. \n
