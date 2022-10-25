@@ -78,7 +78,11 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
   Michael Curry, Alexander Trott, Soham Phade, Yu Bai, Stephan Zheng. \n
 
 * Publications *
-  
+
+- [http://arxiv.org/abs/2205.15294 Efficient Φ-Regret Minimization in Extensive-Form Games via Online Mirror Descent.] \n
+  Yu Bai, Chi Jin, Song Mei, Ziang Song, Tiancheng Yu. \n
+  NeurIPS 2022 (*Oral*).
+
 - [https://arxiv.org/abs/2206.02640 Policy Optimization for Markov Games: Unified Framework and Faster Convergence.] \n
   Runyu Zhang, Qinghua Liu, Huan Wang, Caiming Xiong, Na Li, Yu Bai. \n
   NeurIPS 2022.
@@ -86,16 +90,12 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 - [https://arxiv.org/abs/2206.03688 Identifying Good Directions to Escape the NTK Regime and Efficiently Learn Low-Degree Plus Sparse Polynomials.] \n
   Eshaan Nichani, Yu Bai, Jason D. Lee. \n
   NeurIPS 2022.
-  
-- [http://arxiv.org/abs/2205.15294 Efficient Φ-Regret Minimization in Extensive-Form Games via Online Mirror Descent.] \n
-  Yu Bai, Chi Jin, Song Mei, Ziang Song, Tiancheng Yu. \n
-  NeurIPS 2022 (*Oral*).
 
 - [https://arxiv.org/abs/2205.07223 Sample-Efficient Learning of Correlated Equilibria in Extensive-Form Games.] \n
   Ziang Song, Song Mei, Yu Bai. \n
   NeurIPS 2022.
 
-- [https://yubai.org Conformal Predictor for Improving Zero-Shot Text Classification Efficiency.] \n
+- [https://arxiv.org/abs/2210.12619 Conformal Predictor for Improving Zero-Shot Text Classification Efficiency.] \n
   Prafulla Kumar Choubey, Yu Bai, Chien-Sheng Wu, Wenhao Liu, Nazneen Rajani. \n
   EMNLP 2022.
   
