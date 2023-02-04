@@ -9,10 +9,10 @@
 # During my PhD, I also spent two summers in research labs in the industry: at [https://research.google.com Google Research] in 2016, and at Amazon AI Palo Alto in 2018.
 
 My research interest lies broadly in machine learning, with recent focus on
-- Multi-agent reinforcement learning and games  ([https://yubai.org/blog/marl_theory.html blog post]);
+- Multi-agent reinforcement learning and games  ([https://yubai.org/blog/marl_theory.html blog post], [https://yubai.org/slides/marl_lecture.pdf slides]);
 - Reinforcement learning theory;
 - Theoretical foundations of deep learning ([https://blog.salesforceairesearch.com/beyond-ntk/ blog post]);
-- Uncertainty quantification.
+- Uncertainty quantification ([https://yubai.org/slides/uncertainty.pdf slides]).
 
 # My recent focus is on the theoretical foundations of deep learning, reinforcement learning, representation learning, and uncertainty quantification.
 
