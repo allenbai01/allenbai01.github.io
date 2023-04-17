@@ -1,0 +1,35 @@
+# jemdoc: menu{MENU}{talks.html}
+= Talks
+
+- Recent Progresses on the Theory of Multi-Agent Reinforcement Learning and Games. \n
+  Guest Lecture at CS332, Stanford University, Oct 2022.
+  
+- [https://www.youtube.com/watch?v=Y3AxA4Eb3Bo When Can We Learn General-Sum Markov Games Sample-Efficiently with A Large Number of Players?] \n
+  RL Theory Virtual Seminars, May 2022.
+  
+- Near-Optimal Learning of Extensive-Form Games with Imperfect Information. \n
+  Learning and Games Program, Simons Institute, April 2022. \n
+  CISS Conference, Princeton University, March 2022.
+
+- Understanding the Under-Coverage Bias in Uncertainty Estimation. \n
+  Statistics Department Seminar, Rutgers University, October 2021. \n
+
+- [https://www.youtube.com/watch?v=uGDZsDjXfMQ How Important is the Train-Validtaion Split in Meta-Learning?] \n
+  One World Seminar on the Mathematics of Machine Learning, October 2020.
+
+- Provable Self-Play Algorithms for Competitive Reinforcement Learning. \n
+  Facebook AI Research, March 2020.  
+  
+- ProxQuant: Quantized Neural Networks via Proximal Operators \n
+  Bytedance AI Lab, Dec 2018, Menlo Park, CA. \n
+  Amazon AI, Sep 2018, East Palo Alto, CA.
+
+- On the Generalization and Approximation in Generative Adversarial Networks (GANs) \n
+  Google Brain, Nov 2018, Mountain View, CA. \n
+  Salesforce Research, Nov 2018, Palo Alto, CA. \n
+  Stanford ML Seminar, Oct 2018, Stanford, CA.
+
+- Optimization Landscape of some Non-convex Learning Problems \n
+  Stanford Theory Seminar, Apr 2018, Stanford, CA. \n
+  Stanford ML Seminar, Apr 2017, Stanford, CA.
+###
