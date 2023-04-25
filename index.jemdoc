@@ -36,6 +36,8 @@ My research interest lies broadly in machine learning, with recent focus on
 
 - \[May 2023\] Invited talk at SIAM OP23, Seattle.
 
+- \[Apr 2023\] Three papers accepted at ICML 2023.
+
 - \[Mar 2023\] I will serve as an Area Chair for NeurIPS 2023.
 
 - \[Jan 2023\] Three papers accepted at ICLR 2023.
@@ -76,10 +78,12 @@ My research interest lies broadly in machine learning, with recent focus on
 
 - [http://arxiv.org/abs/2302.01333 Lower Bounds for Learning in Revealing POMDPs.] \n
   Fan Chen, Huan Wang, Caiming Xiong, Song Mei, Yu Bai. \n
-
+  ICML 2023.
+  
 - [https://arxiv.org/abs/2302.07869 Improved Online Conformal Prediction via Strongly Adaptive Online Learning.] \n
   Aadyot Bhatnagar, Huan Wang, Caiming Xiong, Yu Bai. \n
-
+  ICML 2023.
+  
 == Research Focus and Selected Publications
 
 ~~~
@@ -129,7 +133,7 @@ We designed sharp sample-efficient algorithms and studied the fundamental limits
 
 - [http://arxiv.org/abs/2302.01333 Lower Bounds for Learning in Revealing POMDPs.] \n
   Fan Chen, Huan Wang, Caiming Xiong, Song Mei, Yu Bai. \n
-  Preprint, 2023. \n
+  ICML 2023. \n
 
 - [https://arxiv.org/abs/2209.14990 Partially Observable RL with B-Stability: Unified Structural Condition and Sharp Sample-Efficient Algorithms.] \n
   Fan Chen, Yu Bai, Song Mei. \n
