@@ -16,13 +16,13 @@ Google Scholar Profile] | [https://github.com/allenbai01 Github]
 ~~~
 
 == About Me
-I am a Senior Research Scientist at [https://www.salesforceairesearch.com/ Salesforce AI Research] in Palo Alto, CA. My research interest lies broadly in machine learning, such as deep learning, reinforcement learning, learning in games, and uncertainty quantification.
+I am a Senior Research Scientist at [https://www.salesforceairesearch.com/ Salesforce AI Research] in Palo Alto, CA. My research interest lies broadly in machine learning, such as deep learning, large language models/foundation models, reinforcement learning, learning in games, and uncertainty quantification.
 
 Before joining Salesforce, I completed my PhD in [https://statistics.stanford.edu/ Statistics] at [http://www.stanford.edu/ Stanford University] (specializing in machine learning) in September 2019, where I was fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi] and was a member of the [http://ml.stanford.edu/ Machine Learning Group]. During my PhD I also spent times at the research labs of Google and Amazon. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
 
 # During my PhD, I also spent two summers in research labs in the industry: at [https://research.google.com Google Research] in 2016, and at Amazon AI Palo Alto in 2018.
 
-My recent goal is to unveil new understandings of foundation models (such as large language models) and transformers using a combination of experiments and machine learning theory. See our recent [https://arxiv.org/abs/2306.04637 paper] on understanding in-context learning for an example of my recent work.
+My current focus is on foundation models (such as large language models) and transformers. Our goal is to discover new capabilities and new understandings of foundation models, using a combination of experiments,  machine learning theory, and potentially new tools. See our recent [https://arxiv.org/abs/2306.04637 paper] on understanding in-context learning for an example.
 
 Besides, I am also interested in Theoretical foundations of deep learning ([https://blog.salesforceairesearch.com/beyond-ntk/ blog post]); Reinforcement learning theory ([https://yubai.org/Slides/pomdp.pdf slides] on partially observable RL); Multi-agent reinforcement learning and games  ([https://yubai.org/blog/marl_theory.html blog post], [https://yubai.org/Slides/marl_lecture.pdf slides] on MARL, [https://yubai.org/Slides/efg.pdf slides] on Extensive-Form Games); and Uncertainty quantification ([https://yubai.org/Slides/uncertainty.pdf slides]).
 
@@ -80,7 +80,7 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 ~~~
 {Foundation Models and Transformers}
 
-Our goal is to unveil new understandings of transformers and large language models.
+Our goal is to discover new capabilities and new understandings of transformers and large language models.
 
 - [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
   Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
