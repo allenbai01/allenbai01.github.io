@@ -22,11 +22,9 @@ Before joining Salesforce, I completed my PhD in [https://statistics.stanford.ed
 
 # During my PhD, I also spent two summers in research labs in the industry: at [https://research.google.com Google Research] in 2016, and at Amazon AI Palo Alto in 2018.
 
-My research interest lies broadly in machine learning, with recent focus on
-- Theoretical foundations of deep learning ([https://blog.salesforceairesearch.com/beyond-ntk/ blog post]);
-- Reinforcement learning theory ([https://yubai.org/Slides/pomdp.pdf slides] on partially observable RL);
-- Multi-agent reinforcement learning and games  ([https://yubai.org/blog/marl_theory.html blog post], [https://yubai.org/Slides/marl_lecture.pdf slides] on MARL, [https://yubai.org/Slides/efg.pdf slides] on Extensive-Form Games);
-- Uncertainty quantification ([https://yubai.org/Slides/uncertainty.pdf slides]).
+My recent goal is to unveil new understandings of foundation models (such as large language models) and transformers using a combination of experiments and machine learning theory. See our recent [https://arxiv.org/abs/2306.04637 paper] on understanding in-context learning for an example of my recent work.
+
+Besides, I am also interested in Theoretical foundations of deep learning ([https://blog.salesforceairesearch.com/beyond-ntk/ blog post]); Reinforcement learning theory ([https://yubai.org/Slides/pomdp.pdf slides] on partially observable RL); Multi-agent reinforcement learning and games  ([https://yubai.org/blog/marl_theory.html blog post], [https://yubai.org/Slides/marl_lecture.pdf slides] on MARL, [https://yubai.org/Slides/efg.pdf slides] on Extensive-Form Games); and Uncertainty quantification ([https://yubai.org/Slides/uncertainty.pdf slides]).
 
 # My recent focus is on the theoretical foundations of deep learning, reinforcement learning, representation learning, and uncertainty quantification.
 
@@ -73,25 +71,31 @@ My research interest lies broadly in machine learning, with recent focus on
 
 == Recent Work
 
-- [https://arxiv.org/abs/2302.06606 Breaking the Curse of Multiagency: Provably Efficient Decentralized Multi-Agent RL with Function Approximation.] \n
-  Yuanhao Wang, Qinghua Liu, Yu Bai, Chi Jin. \n
-  COLT 2023.
-
-- [http://arxiv.org/abs/2302.01333 Lower Bounds for Learning in Revealing POMDPs.] \n
-  Fan Chen, Huan Wang, Caiming Xiong, Song Mei, Yu Bai. \n
-  ICML 2023.
-  
-- [https://arxiv.org/abs/2302.07869 Improved Online Conformal Prediction via Strongly Adaptive Online Learning.] \n
-  Aadyot Bhatnagar, Huan Wang, Caiming Xiong, Yu Bai. \n
-  ICML 2023.
+- [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
+  Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
+ 
   
 == Research Focus and Selected Publications
+
+~~~
+{Foundation Models and Transformers}
+
+Our goal is to unveil new understandings of transformers and large language models.
+
+- [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
+  Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
+~~~
+
 
 ~~~
 {Multi-Agent Reinforcement Learning Theory}
 
 We developed the first line of provably efficient algorithms for multi-agent reinforcement learning.
 
+- [https://arxiv.org/abs/2302.06606 Breaking the Curse of Multiagency: Provably Efficient Decentralized Multi-Agent RL with Function Approximation.] \n
+  Yuanhao Wang, Qinghua Liu, Yu Bai, Chi Jin. \n
+  COLT 2023.
+  
 - [https://arxiv.org/abs/2206.02640 Policy Optimization for Markov Games: Unified Framework and Faster Convergence.] \n
   Runyu Zhang, Qinghua Liu, Huan Wang, Caiming Xiong, Na Li, Yu Bai. \n
   NeurIPS 2022.
