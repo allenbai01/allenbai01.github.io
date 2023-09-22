@@ -46,7 +46,7 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 
 - \[Sep 2022\] Four papers accepted at NeurIPS 2022.
 
-- \[May 2022\] Excited to be speaking at the [https://sites.google.com/view/rltheoryseminars/home?authuser=0 RL theory seminar] about our [https://arxiv.org/abs/2110.04184 work] on sample-efficient learning of general-sum Markov Games with a large number of players!
+# - \[May 2022\] Excited to be speaking at the [https://sites.google.com/view/rltheoryseminars/home?authuser=0 RL theory seminar] about our [https://arxiv.org/abs/2110.04184 work] on sample-efficient learning of general-sum Markov Games with a large number of players!
 
 # - \[May 2022\] Our [http://arxiv.org/abs/2202.01752 paper] on near-optimal learning in extensive-form games is accepted at ICML 2022. We achieve this by two new algorithms (Balanced OMD, Balanced CFR).
 
@@ -75,7 +75,9 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 
 - [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
   Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
-  Preliminary version appearing at ICML 2023 Workshop on Efficient Systems for Foundation Models (ES-FOMO). [https://github.com/allenbai01/transformers-as-statisticians \[Code\]]
+  NeurIPS 2023 (*Oral*).
+
+  # Preliminary version appearing at ICML 2023 Workshop on Efficient Systems for Foundation Models (ES-FOMO). [https://github.com/allenbai01/transformers-as-statisticians \[Code\]]
   
 == Research Focus and Selected Publications
 
@@ -86,6 +88,7 @@ Our goal is to discover new capabilities and new understandings of transformers 
 
 - [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
   Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
+  NeurIPS 2023 (*Oral*).
 ~~~
 
 
