@@ -3,6 +3,9 @@
 
 * Preprints *
 
+- [https://arxiv.org/abs/2310.08566 Transformers as Decision Makers: Provable In-Context Reinforcement Learning via Supervised Pretraining.] \n
+  Licong Lin, Yu Bai, Song Mei. \n
+  
 - [https://arxiv.org/abs/2307.02884 Sample-Efficient Learning of POMDPs with Multiple Observations In Hindsight.] \n
   Jiacheng Guo, Minshuo Chen, Huan Wang, Caiming Xiong, Mengdi Wang, Yu Bai. \n
   Preliminary version appearing at ICML 2023 Workshop on The Many Facets of Preference-based Learning (MFPL).

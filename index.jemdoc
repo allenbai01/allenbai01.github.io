@@ -32,6 +32,8 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
 
+- \[Sep 2023\] Three papers accepted at NeurIPS 2023.
+
 - \[July 2023\] I am now serving as an Action Editor for TMLR.
 
 - \[May 2023\] Invited talk at SIAM OP23, Seattle.
@@ -44,7 +46,7 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 
 - \[Nov 2022\] Excited to be giving an invited talk "Recent Progresses on the Theory of Multi-Agent Reinforcement Learning and Games" at [https://cs332.stanford.edu Stanford CS332].
 
-- \[Sep 2022\] Four papers accepted at NeurIPS 2022.
+# - \[Sep 2022\] Four papers accepted at NeurIPS 2022.
 
 # - \[May 2022\] Excited to be speaking at the [https://sites.google.com/view/rltheoryseminars/home?authuser=0 RL theory seminar] about our [https://arxiv.org/abs/2110.04184 work] on sample-efficient learning of general-sum Markov Games with a large number of players!
 
@@ -73,11 +75,8 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 
 == Recent Work
 
-- [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
-  Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
-  NeurIPS 2023 (*Oral*). [https://github.com/allenbai01/transformers-as-statisticians \[Code\]]
-
-  # Preliminary version appearing at ICML 2023 Workshop on Efficient Systems for Foundation Models (ES-FOMO). 
+- [https://arxiv.org/abs/2310.08566 Transformers as Decision Makers: Provable In-Context Reinforcement Learning via Supervised Pretraining.] \n
+  Licong Lin, Yu Bai, Song Mei. \n
   
 == Research Focus and Selected Publications
 
@@ -86,9 +85,12 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 
 Our goal is to discover new capabilities and new understandings of transformers and large language models.
 
+- [https://arxiv.org/abs/2310.08566 Transformers as Decision Makers: Provable In-Context Reinforcement Learning via Supervised Pretraining.] \n
+  Licong Lin, Yu Bai, Song Mei. \n
+  
 - [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
   Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
-  NeurIPS 2023 (*Oral*).
+  NeurIPS 2023 (*Oral*). [https://github.com/allenbai01/transformers-as-statisticians \[Code\]]
 ~~~
 
 
