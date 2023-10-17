@@ -3,8 +3,11 @@
 
 * Preprints *
 
+- [https://arxiv.org/abs/2310.10616 How Do Transformers Learn In-Context Beyond Simple Functions? A Case Study on Learning with Representations.] \n
+  Tianyu Guo, Wei Hu, Song Mei, Huan Wang, Caiming Xiong, Silvio Savarese, Yu Bai.
+
 - [https://arxiv.org/abs/2310.08566 Transformers as Decision Makers: Provable In-Context Reinforcement Learning via Supervised Pretraining.] \n
-  Licong Lin, Yu Bai, Song Mei. \n
+  Licong Lin, Yu Bai, Song Mei.
   
 - [https://arxiv.org/abs/2307.02884 Sample-Efficient Learning of POMDPs with Multiple Observations In Hindsight.] \n
   Jiacheng Guo, Minshuo Chen, Huan Wang, Caiming Xiong, Mengdi Wang, Yu Bai. \n
