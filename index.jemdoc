@@ -76,10 +76,12 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 == Recent Work
 
 - [https://arxiv.org/abs/2310.10616 How Do Transformers Learn In-Context Beyond Simple Functions? A Case Study on Learning with Representations.] \n
-  Tianyu Guo, Wei Hu, Song Mei, Huan Wang, Caiming Xiong, Silvio Savarese, Yu Bai.
+  Tianyu Guo, Wei Hu, Song Mei, Huan Wang, Caiming Xiong, Silvio Savarese, Yu Bai. \n
+  ICLR 2024.
    
 - [https://arxiv.org/abs/2310.08566 Transformers as Decision Makers: Provable In-Context Reinforcement Learning via Supervised Pretraining.] \n
-  Licong Lin, Yu Bai, Song Mei.
+  Licong Lin, Yu Bai, Song Mei. \n
+  ICLR 2024.
   
 == Research Focus and Selected Publications
 
@@ -89,10 +91,12 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 Our goal is to discover new capabilities and new understandings of transformers and large language models.
 
 - [https://arxiv.org/abs/2310.10616 How Do Transformers Learn In-Context Beyond Simple Functions? A Case Study on Learning with Representations.] \n
-  Tianyu Guo, Wei Hu, Song Mei, Huan Wang, Caiming Xiong, Silvio Savarese, Yu Bai.
+  Tianyu Guo, Wei Hu, Song Mei, Huan Wang, Caiming Xiong, Silvio Savarese, Yu Bai. \n
+  ICLR 2024.
    
 - [https://arxiv.org/abs/2310.08566 Transformers as Decision Makers: Provable In-Context Reinforcement Learning via Supervised Pretraining.] \n
-  Licong Lin, Yu Bai, Song Mei.
+  Licong Lin, Yu Bai, Song Mei. \n
+  ICLR 2024.
   
 - [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
   Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
