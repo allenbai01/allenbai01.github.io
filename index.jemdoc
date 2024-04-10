@@ -75,6 +75,9 @@ Besides, I am also interested in Theoretical foundations of deep learning ([http
 
 == Recent Work
 
+- [https://arxiv.org/abs/2404.05868 Negative Preference Optimization: From Catastrophic Collapse to Effective Unlearning.] \n
+  Ruiqi Zhang, Licong Lin, Yu Bai, Song Mei. \n
+  
 - [https://arxiv.org/abs/2310.10616 How Do Transformers Learn In-Context Beyond Simple Functions? A Case Study on Learning with Representations.] \n
   Tianyu Guo, Wei Hu, Song Mei, Huan Wang, Caiming Xiong, Silvio Savarese, Yu Bai. \n
   ICLR 2024.
