@@ -5,46 +5,48 @@
 {}{img_left}{yub_square.jpg}{Yu Bai}{180}{180}{}
 
 Yu Bai \n
-Email: yu.bai (at) salesforce (dot) com
+# Email: yu.bai (at) salesforce (dot) com
 
 [Yu_Bai_CV.pdf Curriculum Vitae] |
 [https://scholar.google.com/citations?user=owqhKD8AAAAJ&hl=en&authuser=1
-Google Scholar Profile] | [https://github.com/allenbai01 Github]
+Google Scholar Profile] | [mailto:yubai.pku@gmail.com Email] | [https://github.com/allenbai01 Github]
 
 {{<a href="https://twitter.com/yubai01?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @yubai01</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}}
 
 ~~~
 
 == About Me
-I am a Senior Research Scientist at [https://www.salesforceairesearch.com/ Salesforce AI Research] in Palo Alto, CA. My research interest lies broadly in machine learning, such as deep learning, large language models/foundation models, reinforcement learning, learning in games, and uncertainty quantification.
+I am a currently a Researcher at [https://openai.com/ OpenAI].
 
-Before joining Salesforce, I completed my PhD in [https://statistics.stanford.edu/ Statistics] at [http://www.stanford.edu/ Stanford University] (specializing in machine learning) in September 2019, where I was fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi] and was a member of the [http://ml.stanford.edu/ Machine Learning Group]. During my PhD I also spent times at the research labs of Google and Amazon. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
+Previously, I was a Senior Research Scientist at [https://www.salesforceairesearch.com/ Salesforce AI Research] in Palo Alto, CA. My research interest lied broadly in machine learning, such as deep learning, large language models/foundation models, reinforcement learning, learning in games, and uncertainty quantification. Before joining Salesforce, I completed my PhD in [https://statistics.stanford.edu/ Statistics] at [http://www.stanford.edu/ Stanford University] (specializing in machine learning) in September 2019, where I was fortunate to be advised by Prof. [https://stanford.edu/~jduchi/ John Duchi] and was a member of the [http://ml.stanford.edu/ Machine Learning Group]. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
+
+# During my PhD I also spent times at the research labs of Google and Amazon. Prior to Stanford, I was an undergrad in mathematics at [http://www.pku.edu.cn/ Peking University].
 
 # During my PhD, I also spent two summers in research labs in the industry: at [https://research.google.com Google Research] in 2016, and at Amazon AI Palo Alto in 2018.
 
-My current focus is on foundation models (large language models) and transformers. Our goal is to discover new capabilities and new understandings of foundation models, using a combination of experiments,  machine learning theory, and potentially new tools. See our recent [https://arxiv.org/abs/2306.04637 paper] on understanding in-context learning for an example.
+# My current focus is on foundation models (large language models) and transformers. Our goal is to discover new capabilities and new understandings of foundation models, using a combination of experiments,  machine learning theory, and potentially new tools. See our recent [https://arxiv.org/abs/2306.04637 paper] on understanding in-context learning for an example.
 
-Besides, I am also interested in Theoretical foundations of deep learning ([https://blog.salesforceairesearch.com/beyond-ntk/ blog post]); Reinforcement learning theory ([https://yubai.org/Slides/pomdp.pdf slides] on partially observable RL); Multi-agent reinforcement learning and games  ([https://yubai.org/blog/marl_theory.html blog post], [https://yubai.org/Slides/marl_lecture.pdf slides] on MARL, [https://yubai.org/Slides/efg.pdf slides] on Extensive-Form Games); and Uncertainty quantification ([https://yubai.org/Slides/uncertainty.pdf slides]).
+My research has focused on Large language models; Theoretical foundations of deep learning ([https://blog.salesforceairesearch.com/beyond-ntk/ blog post]); Reinforcement learning theory ([https://yubai.org/Slides/pomdp.pdf slides] on partially observable RL); Multi-agent reinforcement learning and games  ([https://yubai.org/blog/marl_theory.html blog post], [https://yubai.org/Slides/marl_lecture.pdf slides] on MARL, [https://yubai.org/Slides/efg.pdf slides] on Extensive-Form Games); and Uncertainty quantification ([https://yubai.org/Slides/uncertainty.pdf slides]), among others.
 
 # My recent focus is on the theoretical foundations of deep learning, reinforcement learning, representation learning, and uncertainty quantification.
 
-*News*:
+# *News*:
 
 # - *{{<font color="DarkBlue">Looking for self-motivated interns for summer 2021!</font>}}*
 
-- \[Sep 2023\] Three papers accepted at NeurIPS 2023.
+# - \[Sep 2023\] Three papers accepted at NeurIPS 2023.
 
-- \[July 2023\] I am now serving as an Action Editor for TMLR.
+# - \[July 2023\] I am now serving as an Action Editor for TMLR.
 
-- \[May 2023\] Invited talk at SIAM OP23, Seattle.
+# - \[May 2023\] Invited talk at SIAM OP23, Seattle.
 
-- \[Apr 2023\] Three papers accepted at ICML 2023.
+# - \[Apr 2023\] Three papers accepted at ICML 2023.
 
-- \[Mar 2023\] I will serve as an Area Chair for NeurIPS 2023.
+# - \[Mar 2023\] I will serve as an Area Chair for NeurIPS 2023.
 
-- \[Jan 2023\] Three papers accepted at ICLR 2023.
+# - \[Jan 2023\] Three papers accepted at ICLR 2023.
 
-- \[Nov 2022\] Excited to be giving an invited talk "Recent Progresses on the Theory of Multi-Agent Reinforcement Learning and Games" at [https://cs332.stanford.edu Stanford CS332].
+# - \[Nov 2022\] Excited to be giving an invited talk "Recent Progresses on the Theory of Multi-Agent Reinforcement Learning and Games" at [https://cs332.stanford.edu Stanford CS332].
 
 # - \[Sep 2022\] Four papers accepted at NeurIPS 2022.
 
