@@ -3,15 +3,15 @@
 
 * Preprints *
 
-- [https://arxiv.org/abs/2404.05868 Negative Preference Optimization: From Catastrophic Collapse to Effective Unlearning.] \n
-  Ruiqi Zhang, Licong Lin, Yu Bai, Song Mei. \n
- 
 - [https://arxiv.org/abs/2209.11745 Unified Algorithms for RL with Decision-Estimation Coefficients: No-Regret, PAC, and Reward-Free Learning. ] \n
   Fan Chen, Song Mei, Yu Bai. \n
 
-
 * Publications *
 
+- [https://arxiv.org/abs/2404.05868 Negative Preference Optimization: From Catastrophic Collapse to Effective Unlearning.] \n
+  Ruiqi Zhang, Licong Lin, Yu Bai, Song Mei. \n
+  Conference on Language Modeling (COLM) 2024.
+ 
 - [https://arxiv.org/abs/2312.00054 Is Inverse Reinforcement Learning Harder than Standard Reinforcement Learning? A Theoretical Perspective.] \n
   Lei Zhao, Mengdi Wang, Yu Bai. \n
   ICML 2024.
@@ -29,8 +29,6 @@
   ICLR 2024.
   # Preliminary version appearing at ICML 2023 Workshop on The Many Facets of Preference-based Learning (MFPL).
 
-
-
 - [https://arxiv.org/abs/2306.04637 Transformers as Statisticians: Provable In-Context Learning with In-Context Algorithm Selection.] \n
   Yu Bai, Fan Chen, Huan Wang, Caiming Xiong, Song Mei. \n
   NeurIPS 2023 (*Oral*).
@@ -45,7 +43,6 @@
   Minshuo Chen, Yu Bai, H. Vincent Poor, Mengdi Wang. \n
   NeurIPS 2023.
   # Preliminary version appearing at ICML 2023 Workshop on New Frontiers in Learning, Control, and Dynamical Systems (4LDC).
-
 
 - [https://arxiv.org/abs/2302.06606 Breaking the Curse of Multiagency: Provably Efficient Decentralized Multi-Agent RL with Function Approximation.] \n
   Yuanhao Wang, Qinghua Liu, Yu Bai, Chi Jin. \n
