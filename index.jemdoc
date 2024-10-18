@@ -82,6 +82,9 @@ My research has focused on Large language models; Theoretical foundations of dee
 
 Our goal is to discover new capabilities and new understandings of transformers and large language models.
 
+- [https://arxiv.org/abs/2410.13835 Active-Dormant Attention Heads: Mechanistically Demystifying Extreme-Token Phenomena in LLMs.] \n
+  Tianyu Guo, Druv Pai, Yu Bai, Jiantao Jiao, Michael I. Jordan, Song Mei.
+
 - [https://arxiv.org/abs/2310.10616 How Do Transformers Learn In-Context Beyond Simple Functions? A Case Study on Learning with Representations.] \n
   Tianyu Guo, Wei Hu, Song Mei, Huan Wang, Caiming Xiong, Silvio Savarese, Yu Bai. \n
   ICLR 2024.
