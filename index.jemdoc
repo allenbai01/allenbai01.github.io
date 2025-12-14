@@ -78,6 +78,20 @@ My research has focused on Large language models; Theoretical foundations of dee
 == Research Focus and Selected Publications
 
 ~~~
+{Recent Work}
+
+- [https://openai.com/index/introducing-gpt-5-2/ GPT-5.2.] \n
+  OpenAI.
+
+- [https://openai.com/index/introducing-gpt-5/ GPT-5.] \n
+  OpenAI.
+
+- [https://openai.com/index/learning-to-reason-with-llms/ OpenAI o1.] \n
+  OpenAI. [https://arxiv.org/abs/2412.16720 \[system card\].]
+
+~~~
+
+~~~
 {Foundation Models and Transformers}
 
 Our goal is to discover new capabilities and new understandings of transformers and large language models.
